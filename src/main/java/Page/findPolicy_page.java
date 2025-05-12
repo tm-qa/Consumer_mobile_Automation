@@ -1,0 +1,133 @@
+package Page;
+
+import Base.TestBase;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import utils.TestUtil;
+
+
+public class findPolicy_page extends TestBase {
+
+    public findPolicy_page() {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
+
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Find a policy\")")
+    WebElement findaPolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Insurance\")")
+    WebElement Insurance;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Search by insurance types\")")
+    WebElement Searchbyinsurancetypes;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Motor\")")
+    WebElement Motor;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Life\")")
+    WebElement Life;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Health\")")
+    WebElement Health;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Other methods to fetch health policy\")")
+    WebElement Otherhealthpolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Other methods to fetch life policy\")")
+    WebElement Otherlifepolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Other methods to fetch motor policy\")")
+    WebElement Othermotorpolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"vehicleRegistrationNumber\")")
+    WebElement vehicleRegistrationNumber; //enter
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Search\")")
+    WebElement search;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"We're unable to find your policy using the vehicle registration number\")")
+    WebElement unabletofindPolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Upload your policy\")")
+    WebElement uploadPolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"MOTOR\")")
+    WebElement MOTOR;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Motor Insurance\")")
+    WebElement MotorInsurance;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Verify It's You\")")
+    WebElement verifyitsyou;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Time to celebrate\")")
+    WebElement timetocelebrate;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"We have found your policy!\")")
+    WebElement Wefoundyourpolicy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
+    WebElement closeButton;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
+    WebElement back;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"pincode\")")
+    WebElement pincodee;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View Details\")")
+    WebElement viewDetails;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"MEDIKONDALA VENKATESH NAIDU\").instance(0)")
+    WebElement medikonda;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
+    WebElement Closeinvitefamily;
+
+
+
+
+    public void Unabletofindpolicy(String regno) throws InterruptedException {
+
+        TestUtil.click(findaPolicy,"finda Policy clicked");
+        TestUtil.click(Motor,"Motor clicked");
+        TestUtil.click(vehicleRegistrationNumber,"Motor clicked");
+        Thread.sleep(1000);
+        TestUtil.sendKeys(vehicleRegistrationNumber,regno,regno+" Reg number entered");
+        Thread.sleep(2000);
+        TestUtil.click(search,"Search clicked");
+        TestUtil.assertText(unabletofindPolicy,"We're unable to find your policy using the vehicle registration number");
+        TestUtil.assertText(uploadPolicy,"Upload your policy");
+
+    }
+
+
+    public void validRegNo(String regno,int pincode) throws InterruptedException {
+
+        TestUtil.click(findaPolicy,"finda Policy clicked");
+        TestUtil.click(Motor,"Motor clicked");
+        TestUtil.click(vehicleRegistrationNumber,"Motor clicked");
+        Thread.sleep(1000);
+        TestUtil.sendKeys(vehicleRegistrationNumber,regno,regno+" Reg number entered");
+        Thread.sleep(2000);
+        TestUtil.click(search,"Search clicked");
+        TestUtil.assertText(MOTOR,"MOTOR");
+        TestUtil.assertText(MotorInsurance,"Motor Insurance");
+        TestUtil.click(closeButton,"");
+        TestUtil.click(back,"");
+        TestUtil.click(Insurance,"Insurance clicked");
+        TestUtil.click(verifyitsyou,"Click on Verify its You");
+        TestUtil.sendKeys(pincodee, String.valueOf(pincode),pincode+" - pincode Entered");
+        TestUtil.click(viewDetails,"view Details");
+        TestUtil.assertText(medikonda,"MEDIKONDALA VENKATESH NAIDU");
+
+
+    }
+
+
+}
