@@ -1,1 +1,0 @@
-{"uuid":"61f771af-1773-4145-9d71-c8dabe3ff219","name":"Home_Test.dashBoard.close","children":["46e38f93-4e2c-4045-bbed-42d15e096249"],"description":"","befores":[],"afters":[{"name":"close","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1746694562723,"stop":1746694562724}],"start":1746694562722,"stop":1746694562724}

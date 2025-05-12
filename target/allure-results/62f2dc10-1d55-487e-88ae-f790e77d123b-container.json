@@ -1,1 +1,0 @@
-{"uuid":"62f2dc10-1d55-487e-88ae-f790e77d123b","name":"Home_Test.findPolicy.close","children":["3b175508-f3a4-463f-b2b9-0b01ba2e649a"],"description":"","befores":[],"afters":[{"name":"close","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1746713608506,"stop":1746713608506}],"start":1746713608504,"stop":1746713608506}
