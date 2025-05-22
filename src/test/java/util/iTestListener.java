@@ -1,10 +1,10 @@
 package util;
 
-import com.qa.turtlemint.base.TestBase;
-import com.qa.turtlemint.util.TestUtil;
+import Base.TestBase;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import utils.TestUtil;
 
 import java.io.IOException;
 
@@ -31,8 +31,8 @@ public class iTestListener extends TestBase implements ITestListener
 
         System.out.println("*************--The name of the testcase failed is :"+Result.getName());
         try {
-            TestUtil.getFullPageScreenShot();
-        } catch (IOException e) {
+            TestUtil.getScreenShot();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
