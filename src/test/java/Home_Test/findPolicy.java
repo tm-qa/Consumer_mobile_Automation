@@ -24,7 +24,7 @@ public class findPolicy extends TestBase {
     public void start() throws IOException, InterruptedException {
         TurtlemintProApp();
         upload_file up = new upload_file();
-        up.uploadFile();
+       // up.uploadFile();
         lg = new Login();
         dash = new findPolicy_page();
 
@@ -32,23 +32,30 @@ public class findPolicy extends TestBase {
 
     }
 
-    @Test(description = "invalid Reg number mh90ab1234")
+    @Test( description = "invalid Reg number mh90ab1234")
     public void motor_invalid_Test() throws InterruptedException {
 
         dash.Unabletofindpolicy("mh90ab1234");
 
     }
 
-    @Test(description = "valid with Pincode")
-    public void motor_Policy_Test() throws InterruptedException {
+    @Test(priority = 1,description = "valid with Pincode + Third Party Only")
+    public void motor_PolicyPincode_Test() throws InterruptedException {
 
-        dash.validRegNo("KA05MH4626", 560034);
+        dash.validRegNo("KA05MH4626" );
+        dash.pincode(560034);
 
+    }
+    @Test(priority = 2,description = "valid with full name + Comprehensive")
+    public void motor_PolicyName_Test() throws InterruptedException {
+
+        dash.validRegNo("UP32WN4357");
+        dash.name("GURUMUKH. SINGH");
     }
 
     @AfterMethod
     public void close() {
-        //  driver.quit();
+          driver.quit();
     }
 
 }

@@ -20,7 +20,7 @@
                     </run>
                 </groups>
         <classes>
-
+            <class name="Account.profile_Creation"/>
 
         </classes>
 

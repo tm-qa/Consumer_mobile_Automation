@@ -4,23 +4,24 @@ import Base.TestBase;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import junit.framework.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utils.TestUtil;
 
-public class dashboard_Page extends TestBase {
+public class fastTag_page extends TestBase {
 
-    public dashboard_Page() {
+    public fastTag_page() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     TestUtil util = new TestUtil();
 
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Find a policy\")")
-    WebElement findaPolicy;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View More\")")
+    WebElement ViewMore;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Fastag\")")
+    WebElement Fastag;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Family Account\")")
     WebElement FamilyAccount;
@@ -43,8 +44,6 @@ public class dashboard_Page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Renewals\")")
     WebElement Renewals;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View More\")")
-    WebElement ViewMore;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Know your advisor\")")
     WebElement Knowyouradvisor;
@@ -71,25 +70,16 @@ public class dashboard_Page extends TestBase {
     WebElement aMyFamily;
 
 
+    public void fasttage() throws InterruptedException {
 
+        TestUtil.click(ViewMore, "View More");
 
-    public void dashboardCheck() throws InterruptedException {
-
-        TestUtil.assertText(findaPolicy,"Find a policy");
-        TestUtil.assertText(FamilyAccount,"Family Account");
-        TestUtil.assertText(ConnectWithExpert,"Connect With Expert");
-        TestUtil.assertText(EmergencyFund,"Emergency Fund");
-        TestUtil.assertText(Knowyourpolicy,"Know your policy");
-        TestUtil.assertText(HiddenPolicies,"Hidden Policies");
-        TestUtil.assertText(Claims,"Claims");
-        TestUtil.assertText(Renewals,"Renewals");
-        TestUtil.assertText(ViewMore,"View More");
-        TestUtil.assertText(FamilyAccount,"Family Account");
+        TestUtil.click(Fastag, "Fas tag");
 
 
         util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Know your advisor\")"), "up", 1);
         Thread.sleep(1500);
-        TestUtil.assertText(Knowyouradvisor,"Know your advisor");
+        TestUtil.assertText(Knowyouradvisor, "Know your advisor");
         TestUtil.assertText(Addadvisor, "Add advisor");
         util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"My family\")"), "up", 2);
         Thread.sleep(1500);
@@ -100,3 +90,4 @@ public class dashboard_Page extends TestBase {
 
     }
 }
+

@@ -86,9 +86,29 @@ public class findPolicy_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"MEDIKONDALA VENKATESH NAIDU\").instance(0)")
     WebElement medikonda;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
-    WebElement Closeinvitefamily;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"GURUMUKH SINGH\").instance(0)")
+    WebElement GURUMUKHSINGH;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Comprehensive cover\")")
+    WebElement Comprehensive;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View document\")")
+    WebElement viewDocument;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Third Party only cover\")")
+    WebElement thirdPartyOnly;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"name\")")
+    WebElement namee;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Own Damage\")")
+    WebElement OwnDamage;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Third Party\")")
+    WebElement ThirdParty;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add ons\")")
+    WebElement AddOns;
 
 
 
@@ -107,27 +127,52 @@ public class findPolicy_page extends TestBase {
     }
 
 
-    public void validRegNo(String regno,int pincode) throws InterruptedException {
+    public void validRegNo(String regno) throws InterruptedException {
 
-        TestUtil.click(findaPolicy,"finda Policy clicked");
-        TestUtil.click(Motor,"Motor clicked");
-        TestUtil.click(vehicleRegistrationNumber,"Motor clicked");
+        TestUtil.click(findaPolicy, "finda Policy clicked");
+        TestUtil.click(Motor, "Motor clicked");
+        TestUtil.click(vehicleRegistrationNumber, "Motor clicked");
         Thread.sleep(1000);
-        TestUtil.sendKeys(vehicleRegistrationNumber,regno,regno+" Reg number entered");
+        TestUtil.sendKeys(vehicleRegistrationNumber, regno, regno + " Reg number entered");
         Thread.sleep(2000);
-        TestUtil.click(search,"Search clicked");
-        TestUtil.assertText(MOTOR,"MOTOR");
-        TestUtil.assertText(MotorInsurance,"Motor Insurance");
-        TestUtil.click(closeButton,"");
-        TestUtil.click(back,"");
-        TestUtil.click(Insurance,"Insurance clicked");
-        TestUtil.click(verifyitsyou,"Click on Verify its You");
+        TestUtil.click(search, "Search clicked");
+        TestUtil.assertText(MOTOR, "MOTOR");
+        TestUtil.click(closeButton, "");
+        TestUtil.click(back, "");
+        TestUtil.click(Insurance, "Insurance clicked");
+        TestUtil.click(verifyitsyou, "Click on Verify its You");
+    }
+    public void pincode(int pincode) throws InterruptedException {
         TestUtil.sendKeys(pincodee, String.valueOf(pincode),pincode+" - pincode Entered");
         TestUtil.click(viewDetails,"view Details");
+        Thread.sleep(2000);
+        TestUtil.click(closeButton,"");
+        Thread.sleep(1000);
         TestUtil.assertText(medikonda,"MEDIKONDALA VENKATESH NAIDU");
-
-
+        TestUtil.assertText(thirdPartyOnly,"Third Party only cover");
+        TestUtil.assertText(viewDocument,"View document");
+        TestUtil.assertText(ThirdParty,"Third Party");
+        TestUtil.assertText(AddOns,"Add ons");
+        TestUtil.click(viewDocument,"document clicked");
+        Thread.sleep(6000);
+        TestUtil.getScreenShot();
     }
-
-
+    public void name(String name) throws InterruptedException {
+        Thread.sleep(1000);
+        namee.clear();
+        Thread.sleep(1000);
+        TestUtil.sendKeys(namee, name,name+" - Name Entered");
+        TestUtil.click(viewDetails,"view Details");
+        Thread.sleep(2000);
+        Thread.sleep(1000);
+        TestUtil.assertText(GURUMUKHSINGH,"GURUMUKH SINGH");
+        TestUtil.assertText(Comprehensive,"Comprehensive cover");
+        TestUtil.assertText(viewDocument,"View document");
+        TestUtil.assertText(OwnDamage,"Own Damage");
+        TestUtil.assertText(ThirdParty,"Third Party");
+        TestUtil.assertText(AddOns,"Add ons");
+        TestUtil.click(viewDocument,"document clicked");
+        Thread.sleep(6000);
+        TestUtil.getScreenShot();
+    }
 }

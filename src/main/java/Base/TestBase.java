@@ -31,6 +31,5 @@ public class TestBase {
 
       driver = new AndroidDriver(url, desiredCapabilities);
       System.out.println("Application Start");
-
    }
 }

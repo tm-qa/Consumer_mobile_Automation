@@ -1,4 +1,4 @@
-package Home_Test;
+package Account;
 
 import Base.TestBase;
 import Page.Login;
@@ -6,19 +6,21 @@ import Page.NewUser_page;
 import Page.dashboard_Page;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.TestUtil;
+import util.iTestListener;
 
 import java.net.MalformedURLException;
 
-public class dashBoard extends TestBase {
+@Listeners(iTestListener.class)
+@Test(groups = {"NEWProfileCreation"})
+public class profile_Creation extends TestBase {
 
-    public dashBoard() {
+    public profile_Creation() {
         super();
     }
 
     Login lg;
-    dashboard_Page dash;
     NewUser_page user;
 
 
@@ -26,27 +28,22 @@ public class dashBoard extends TestBase {
     public void start() throws MalformedURLException, InterruptedException {
         TurtlemintProApp();
         lg = new Login();
-        dash = new dashboard_Page();
         user = new NewUser_page();
 
         lg.login();
 
     }
 
-    @Test(description = "Profile creation")
+    @Test(description = "NEW Profile creation with 6999912345 number")
     public void ProfileCreation() throws InterruptedException {
         user.profileCreation();
-
-    }
-    @Test(description = "Verifying all the fields on Home Page ")
-    public void verifyDetails_Test() throws InterruptedException {
-        dash.dashboardCheck();
 
     }
 
     @AfterMethod
     public void close() {
-          driver.quit();
+        driver.quit();
     }
 
 }
+
