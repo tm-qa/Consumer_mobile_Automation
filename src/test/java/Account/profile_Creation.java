@@ -36,7 +36,7 @@ public class profile_Creation extends TestBase {
 
     @Test(description = "NEW Profile creation with 6999912345 number")
     public void ProfileCreation() throws InterruptedException {
-        user.profileCreation();
+        user.profileCreation("appium","appium","10-10-1994");
 
     }
 
