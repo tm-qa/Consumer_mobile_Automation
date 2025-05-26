@@ -35,7 +35,7 @@ public class dashBoard extends TestBase {
 
     @Test(description = "Profile creation")
     public void ProfileCreation() throws InterruptedException {
-        user.profileCreation();
+        user.profileCreation("appium","appium","10-10-1994");
 
     }
     @Test(description = "Verifying all the fields on Home Page ")
