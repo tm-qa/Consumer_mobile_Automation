@@ -55,6 +55,9 @@ public class Login extends TestBase {
         TestUtil.click(cancel, "cancel");
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
         TestUtil.click(conti, "continue");
+        otp();
+    }
+    public void otp(){
         TestUtil.sendKeys(one, "1", "one clicked");
         TestUtil.sendKeys(two, "2", "two clicked");
         TestUtil.sendKeys(three, "3", "three clicked");
