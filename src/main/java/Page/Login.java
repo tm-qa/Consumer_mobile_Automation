@@ -1,6 +1,7 @@
 package Page;
 
 import Base.TestBase;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import junit.framework.Assert;
@@ -50,14 +51,17 @@ public class Login extends TestBase {
 
 
     public void login() throws InterruptedException {
-        Thread.sleep(5000);
-        skipIntro.click();
+          Thread.sleep(5000);
+       // skipIntro.click();
+       // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
+
         TestUtil.click(cancel, "cancel");
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
         TestUtil.click(conti, "continue");
         otp();
     }
-    public void otp(){
+
+    public void otp() {
         TestUtil.sendKeys(one, "1", "one clicked");
         TestUtil.sendKeys(two, "2", "two clicked");
         TestUtil.sendKeys(three, "3", "three clicked");
