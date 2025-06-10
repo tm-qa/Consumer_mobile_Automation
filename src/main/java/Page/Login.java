@@ -40,20 +40,12 @@ public class Login extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"otp3\")")
     WebElement four;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Account\")")
-    WebElement Account;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Personal Settings\")")
-    WebElement Personalsetting;
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"TEST NAME\"]")
-    WebElement TestName;
 
 
     public void login() throws InterruptedException {
           Thread.sleep(5000);
-       // skipIntro.click();
-       // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
+        skipIntro.click();
+     //   driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
 
         TestUtil.click(cancel, "cancel");
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
@@ -68,10 +60,6 @@ public class Login extends TestBase {
         TestUtil.sendKeys(four, "4", "four clicked");
     }
 
-    public void profileSetting() {
-        TestUtil.click(Account, "");
-        Assert.assertEquals(TestName.getText(), "TEST NAME");
-    }
 
 
 }

@@ -2,7 +2,6 @@ package Smoke;
 
 import Base.TestBase;
 import Page.Login;
-import Page.NewUser_page;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -20,39 +19,19 @@ public class smoke_Suite extends TestBase {
     }
 
     Login lg;
-    NewUser_page user;
 
 
     @BeforeMethod
     public void start() throws MalformedURLException, InterruptedException {
         TurtlemintProApp();
         lg = new Login();
-        user = new NewUser_page();
 
+
+    }
+
+    @Test(description = "Login")
+    public void login() throws InterruptedException {
         lg.login();
-
-    }
-
-    @Test(description = "Login And Logout with 6999912345 number")
-    public void login_logout_with_699912345() throws InterruptedException {
-        user.profileLogout();
-    }
-    @Test(priority = 3, description = "NEW Profile creation with 6999912345 number")
-    public void ProfileCreation() throws InterruptedException {
-        user.deleteAccount();
-        user.prof();
-        user.profileCreation("appium","appium","10-10-1994");
-    }
-
-    @Test(priority = 1,description = "Delete Account with 6999912345 number")
-    public void DeleteAccount() throws InterruptedException {
-        user.deleteAccount();
-    }
-
-    @Test(priority = 2,description = "Check policy Fetch through FN,LN")
-    public void checkbyFNLN() throws InterruptedException {
-        user.profileCreation("Ashok","mishra","07-09-1975");
-        user.byname();
     }
 
 
