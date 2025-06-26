@@ -32,11 +32,12 @@ public class TestBase {
       //  URL url = new URL("http://127.0.0.1:4723/");
 
 
-        URL url =   new URL("http://127.0.0.1:4723/wd/hub");
+     //   URL url =   new URL("http://127.0.0.1:4723/wd/hub");
+
+        driver = new AndroidDriver(new URL("http://localhost:4723/"), desiredCapabilities);
 
 
-
-        driver = new AndroidDriver(url, desiredCapabilities);
+      //  driver = new AndroidDriver(url, desiredCapabilities);
         System.out.println("Application Start");
     }
 }
