@@ -11,7 +11,7 @@ public class TestBase {
    public static AndroidDriver driver;
 
    public static void TurtlemintProApp() throws MalformedURLException, InterruptedException {
-
+      System.out.println("started suite");
       DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
       desiredCapabilities.setCapability("deviceName", "Pixel 7");
