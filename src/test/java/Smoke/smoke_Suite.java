@@ -25,6 +25,7 @@ public class smoke_Suite extends TestBase {
 
     @BeforeMethod
     public void start() throws MalformedURLException, InterruptedException {
+        System.out.println("Suite starteddd");
         TurtlemintProApp();
         lg = new Login();
         user = new NewUser_page();
