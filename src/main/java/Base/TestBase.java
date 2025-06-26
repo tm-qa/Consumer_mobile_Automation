@@ -29,7 +29,12 @@ public class TestBase {
         desiredCapabilities.setCapability("appActivity", "com.turtlemintconsumerapp.MainActivity");
 
 
-        URL url = new URL("http://127.0.0.1:4723/");
+      //  URL url = new URL("http://127.0.0.1:4723/");
+
+
+        URL url =   new URL("http://127.0.0.1:4723/wd/hub");
+
+
 
         driver = new AndroidDriver(url, desiredCapabilities);
         System.out.println("Application Start");
