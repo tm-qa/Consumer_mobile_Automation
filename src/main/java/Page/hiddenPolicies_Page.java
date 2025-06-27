@@ -26,8 +26,17 @@ public class hiddenPolicies_Page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"CreditCardprovider\")")
     WebElement search;
 
+
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(4)")
     WebElement sbi;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"SBI Card ELITE\")")
+    WebElement sbiElite;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add to my policies\")")
+    WebElement addtoPolicy;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View other policies\")")
+    WebElement View_other_policies;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"CreditCardprovider\")")
     WebElement creditcardname;
@@ -66,13 +75,22 @@ public class hiddenPolicies_Page extends TestBase {
     WebElement aMyFamily;
 
 
-    public void connectWithExpertSchedule() throws InterruptedException {
+    public void Hiddenpolicies() throws InterruptedException {
         TestUtil.click(HiddenPolicies, "Hidden Policies");
         Thread.sleep(1500);
         TestUtil.getScreenShot();
         TestUtil.sendKeys(search, "SBI", "Messaege entered");
         Thread.sleep(1500);
         TestUtil.getScreenShot();
+        TestUtil.click(sbi,"SBI selected");
+        Thread.sleep(2000);
+        TestUtil.click(sbiElite,"SBI card selected");
+        Thread.sleep(2000);
+        TestUtil.click(addtoPolicy,"Add to my policy clicked");
+        TestUtil.assertText(View_other_policies,"View other policies");
+
+        TestUtil.getScreenShot();
+
 
     }
 

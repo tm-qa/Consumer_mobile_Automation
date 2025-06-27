@@ -14,15 +14,15 @@ public class TestBase {
 
       DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
-      desiredCapabilities.setCapability("deviceName", "Pixel 7");
+      desiredCapabilities.setCapability("deviceName", "Pixel 8 Pro");
       desiredCapabilities.setCapability("udid", "emulator-5554");
       desiredCapabilities.setCapability("platformName", "Android");
-      desiredCapabilities.setCapability("platformVersion", "12");
+      desiredCapabilities.setCapability("platformVersion", "16");
 
-//        desiredCapabilities.setCapability("noReset", "true");
-//        desiredCapabilities.setCapability("fullReset", "false");
+        desiredCapabilities.setCapability("noReset", "true");
+        desiredCapabilities.setCapability("fullReset", "false");
       desiredCapabilities.setCapability("automationName", "UiAutomator2");
-     //               desiredCapabilities.setCapability("app", "/Users/tejasbahadure/Downloads/app-release.apk");
+            //        desiredCapabilities.setCapability("app", "/Users/suraj_garud/Downloads/prodconsumer.apk");
       desiredCapabilities.setCapability("appPackage", "com.turtlemintconsumerapp");
       desiredCapabilities.setCapability("appActivity", "com.turtlemintconsumerapp.MainActivity");
 

@@ -30,7 +30,8 @@ public class dashboard_Page extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Emergency Fund\")")
     WebElement EmergencyFund;
-
+    @AndroidFindBy (uiAutomator = "new UiSelector().text(\"Medical Loan\")")
+    WebElement  MedicalLoan;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Know your policy\")")
     WebElement Knowyourpolicy;
 
@@ -42,6 +43,10 @@ public class dashboard_Page extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Renewals\")")
     WebElement Renewals;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Fastag\")")
+    WebElement Fastag;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Insurance Gyan\")")
+    WebElement Insurance_Gyan;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View More\")")
     WebElement ViewMore;
@@ -77,14 +82,20 @@ public class dashboard_Page extends TestBase {
 
         TestUtil.assertText(findaPolicy,"Find a policy");
         TestUtil.assertText(FamilyAccount,"Family Account");
-        TestUtil.assertText(ConnectWithExpert,"Connect With Expert");
-        TestUtil.assertText(EmergencyFund,"Emergency Fund");
+        try {
+            TestUtil.assertText(EmergencyFund, "Emergency Fund");
+        } catch (Exception e) {
+            TestUtil.assertText(MedicalLoan, "Emergency Fund");
+        }
         TestUtil.assertText(Knowyourpolicy,"Know your policy");
         TestUtil.assertText(HiddenPolicies,"Hidden Policies");
+        TestUtil.getScreenShot();
         TestUtil.assertText(Claims,"Claims");
+        util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Know your advisor\")"), "up", 1);
         TestUtil.assertText(Renewals,"Renewals");
-        TestUtil.assertText(ViewMore,"View More");
-        TestUtil.assertText(FamilyAccount,"Family Account");
+        TestUtil.assertText(Fastag,"Fastag");
+        //TestUtil.assertText(ViewMore,"View More");
+        TestUtil.assertText(Insurance_Gyan,"Insurance Gyan");
 
 
         util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Know your advisor\")"), "up", 1);

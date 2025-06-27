@@ -72,7 +72,7 @@ public class fastTag_page extends TestBase {
 
     public void fasttage() throws InterruptedException {
 
-        TestUtil.click(ViewMore, "View More");
+       // TestUtil.click(ViewMore, "View More");
 
         TestUtil.click(Fastag, "Fas tag");
 

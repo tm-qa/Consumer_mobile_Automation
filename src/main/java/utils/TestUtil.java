@@ -94,6 +94,7 @@ public class TestUtil extends TestBase {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView("+xpath+")"))));
     }
 
+
     public static void IsDisplayed(WebElement element, String msg) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(element));

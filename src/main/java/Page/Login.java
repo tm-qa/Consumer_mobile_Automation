@@ -11,16 +11,24 @@ import org.openqa.selenium.support.PageFactory;
 import utils.TestUtil;
 
 public class Login extends TestBase {
-
+    TestUtil util = new TestUtil();
     public Login() {
+
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"SKIP INTRO\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(25)")
     WebElement skipIntro;
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"FINISH\")")
+    WebElement Finish;
+
+    @AndroidFindBy(uiAutomator ="new UiSelector().resourceId(\"com.android.permissioncontroller:id/permission_allow_button\")" )
+    WebElement Allow;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.google.android.gms:id/cancel\")")
     WebElement cancel;
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Remind me later\")")
+    WebElement RemindLater;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"phoneNumber\")")
     WebElement phoneNumber;
@@ -51,11 +59,20 @@ public class Login extends TestBase {
 
 
     public void login() throws InterruptedException {
-          Thread.sleep(5000);
-       // skipIntro.click();
-       // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
 
-        TestUtil.click(cancel, "cancel");
+//          TestUtil.click(Allow,"Allow clicked");
+//        Thread.sleep(5000);
+//        TestUtil.click(RemindLater,"remind later clicked");
+//        Thread.sleep(2000);
+
+//        TestUtil.click(skipIntro,"skipIntro clicked");
+//        Thread.sleep(3000);
+//        Finish.click();
+
+        // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
+
+        //  TestUtil.click(cancel, "cancel");
+
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
         TestUtil.click(conti, "continue");
         otp();
