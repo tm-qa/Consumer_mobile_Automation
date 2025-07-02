@@ -60,7 +60,7 @@ public class Login extends TestBase {
 
     public void login() throws InterruptedException {
 
-//          TestUtil.click(Allow,"Allow clicked");
+          TestUtil.click(Allow,"Allow clicked");
 //        Thread.sleep(5000);
 //        TestUtil.click(RemindLater,"remind later clicked");
 //        Thread.sleep(2000);
@@ -71,8 +71,7 @@ public class Login extends TestBase {
 
         // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
 
-        //  TestUtil.click(cancel, "cancel");
-
+          TestUtil.click(cancel, "cancel");
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
         TestUtil.click(conti, "continue");
         otp();

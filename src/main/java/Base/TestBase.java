@@ -19,8 +19,8 @@ public class TestBase {
       desiredCapabilities.setCapability("platformName", "Android");
       desiredCapabilities.setCapability("platformVersion", "16");
 
-        desiredCapabilities.setCapability("noReset", "true");
-        desiredCapabilities.setCapability("fullReset", "false");
+//        desiredCapabilities.setCapability("noReset", "true");
+//        desiredCapabilities.setCapability("fullReset", "false");
       desiredCapabilities.setCapability("automationName", "UiAutomator2");
             //        desiredCapabilities.setCapability("app", "/Users/suraj_garud/Downloads/prodconsumer.apk");
       desiredCapabilities.setCapability("appPackage", "com.turtlemintconsumerapp");
