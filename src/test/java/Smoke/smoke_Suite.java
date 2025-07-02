@@ -70,6 +70,11 @@ public class smoke_Suite extends TestBase {
 
 
 
+
+
+
+
+
 //    @Test(priority = 1,description = "Check AyushPay")
 //    public void checkAyushpay() throws InterruptedException {
 //       Ap.AyushPayCheck();

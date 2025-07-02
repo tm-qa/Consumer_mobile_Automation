@@ -6,6 +6,8 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -21,7 +23,7 @@ public class NewUser_page extends TestBase {
 
 TestUtil util = new TestUtil();
     Login lg = new Login();
-    NewUser_page user = new NewUser_page();
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"firstName\")")
     WebElement firstName;
 
@@ -58,6 +60,38 @@ TestUtil util = new TestUtil();
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.google.android.gms:id/cancel\")")
     WebElement cancel;
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
+    WebElement back;
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(1)")
+    WebElement back2;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Claims\").instance(1)")
+    WebElement Claim;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Raise a claim\")")
+    WebElement RaiseClaim;
+    @AndroidFindBy(uiAutomator ="new UiSelector().className(\"android.view.ViewGroup\").instance(23)")
+    WebElement RaiseClaim1;
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Upload your policy\")")
+    WebElement Upload_your_policy;
+
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Yes\")")
+    WebElement Yes;
+
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"No\")")
+    WebElement No;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View Details\")")
+    WebElement ViewDetail;
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"View Details\"]")
+    WebElement ViewDetail1;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Verify It's You\")")
+    WebElement Verify;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"pincode\")")
+    WebElement Pincode;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add policy document\")")
+    WebElement AddDoc;
+
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View document\")")
     WebElement viewdoc; //enter
@@ -66,11 +100,19 @@ TestUtil util = new TestUtil();
     WebElement AshokMishra;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
-    WebElement back;
+    WebElement back1;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(15)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Home\")")
     WebElement Home;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Find a policy\")")
+    WebElement findaPolicy;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Motor\")")
+    WebElement Motor;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"vehicleRegistrationNumber\")")
+    WebElement MotorNumber;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Search\")")
+    WebElement Search;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Insurance\")")
     WebElement Insurance;
 
@@ -150,16 +192,71 @@ TestUtil util = new TestUtil();
         TestUtil.sendKeys(dob,DOB,"DOB entered");
         Thread.sleep(1000);
         TestUtil.click(cont,"Continue clicked");
-        try {
-            TestUtil.click(Insurance, "Insurance clicked");
-            Thread.sleep(2000);
-            TestUtil.getScreenShot();
-        } catch (InterruptedException e) {
+        try{
+            if(Insurance.isDisplayed()){
+                TestUtil.click(Insurance, "Insurance clicked");
+                Thread.sleep(2000);
+                TestUtil.getScreenShot();
+                LogUtils.info("Claims flow started");
+//Claims
+                TestUtil.click(Home,"Home clicked");
+                TestUtil.click(findaPolicy,"Find a Policy clicked");
+                TestUtil.click(Motor,"Motor clicked");
+                TestUtil.sendKeys(MotorNumber,"MH12QD3579","Vehicle number enter");
+                Thread.sleep(3000);
+                TestUtil.click(Search,"Search clicked");
+                Thread.sleep(3000);
+                TestUtil.click(back,"Cross clicked");
+                TestUtil.click(back,"back clicked");
+                TestUtil.click(Claim,"Claim clicked");
+                TestUtil.click(RaiseClaim,"RaiseClaim clicked");
+                TestUtil.click(ViewDetail,"View Detail clicked");
+                TestUtil.click(Verify,"verify its you clicked");
+                TestUtil.click(closeButton,"Close add");
+                TestUtil.sendKeys(Pincode,"411046","Pincode enter");
+                TestUtil.click(ViewDetail1,"View Detail clicked");
+                Thread.sleep(3000);
+                TestUtil.click(closeButton,"Close add");
+                Thread.sleep(3000);
+                TestUtil.getScreenShot();
+                TestUtil.click(AddDoc,"Add Policy Document clicked");
+                Thread.sleep(3000);
+                TestUtil.getScreenShot();
+                TestUtil.click(back2,"back clicked");
+                TestUtil.click(back,"back clicked");
+                TestUtil.assertText(Upload_your_policy,"Upload your policy");
+                TestUtil.click(RaiseClaim1,"raise a Claim clicked");
+                Thread.sleep(2000);
+                TestUtil.assertText(Yes,"Yes");
+                TestUtil.assertText(No,"No");
+                TestUtil.getScreenShot();
+            }
+//            else {
+//                NewUser_page user = new NewUser_page();
+//                user.byname();
+//            }
+        }
+        catch (NoSuchElementException e){
+            NewUser_page user = new NewUser_page();
             user.byname();
         }
 //        try {
-//           TestUtil.click(closeButton,"Close add");
-//        }catch (Exception e){
+//            TestUtil.click(Insurance, "Insurance clicked");
+//            Thread.sleep(2000);
+//            TestUtil.getScreenShot();
+//        } catch (TimeoutException e) {
+//                NewUser_page user = new NewUser_page();
+//                user.byname();
+//        }
+//
+//        if(Insurance.isDisplayed()){
+//            TestUtil.click(Insurance, "Insurance clicked");
+//            Thread.sleep(2000);
+//            TestUtil.getScreenShot();
+//        }
+//        else {
+//            NewUser_page user = new NewUser_page();
+//                user.byname();
 //        }
     }
     public void prof(){
