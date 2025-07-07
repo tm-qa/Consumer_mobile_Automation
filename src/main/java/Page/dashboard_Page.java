@@ -85,7 +85,7 @@ public class dashboard_Page extends TestBase {
         try {
             TestUtil.assertText(EmergencyFund, "Emergency Fund");
         } catch (Exception e) {
-            TestUtil.assertText(MedicalLoan, "Emergency Fund");
+            TestUtil.assertText(MedicalLoan, "Medical Loan");
         }
         TestUtil.assertText(Knowyourpolicy,"Know your policy");
         TestUtil.assertText(HiddenPolicies,"Hidden Policies");

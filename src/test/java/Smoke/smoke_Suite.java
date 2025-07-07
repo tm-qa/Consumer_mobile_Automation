@@ -56,38 +56,21 @@ public class smoke_Suite extends TestBase {
 
     @Test(priority = 2,description = "Check policy Fetch through FN,LN")
     public void checkbyFNLN() throws InterruptedException {
-//        user.deleteAccount();
-//        lg.login();
         user.profileCreation("Ashok","mishra","07-09-1975");
-       // user.byname();
+
     }
 
+    @Test(priority = 4,description = "Check AyushPay")
+    public void checkAyushpay() throws InterruptedException {
+       Ap.AyushPayCheck();
+    }
 
+    @Test(priority = 5,description = "Check Dashboard")
+    public void checkHomepage() throws InterruptedException {
 
-
-
-
-
-
-
-
-
-
-
-
-//    @Test(priority = 1,description = "Check AyushPay")
-//    public void checkAyushpay() throws InterruptedException {
-//       Ap.AyushPayCheck();
-//    }
-
-//    @Test//(priority = 1,description = "Check Dashboard")
-//    public void checkHomepage() throws InterruptedException {
-//
-//        //lg.login();
-//       dp.dashboardCheck();
-//    }
-
-
+        //lg.login();
+       dp.dashboardCheck();
+    }
 
     @AfterMethod
     public void close() {

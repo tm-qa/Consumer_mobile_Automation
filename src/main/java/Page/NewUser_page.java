@@ -205,13 +205,18 @@ TestUtil util = new TestUtil();
                 TestUtil.sendKeys(MotorNumber,"MH12QD3579","Vehicle number enter");
                 Thread.sleep(3000);
                 TestUtil.click(Search,"Search clicked");
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 TestUtil.click(back,"Cross clicked");
+                Thread.sleep(3000);
                 TestUtil.click(back,"back clicked");
                 TestUtil.click(Claim,"Claim clicked");
                 TestUtil.click(RaiseClaim,"RaiseClaim clicked");
                 TestUtil.click(ViewDetail,"View Detail clicked");
+                Thread.sleep(3000);
+                TestUtil.getScreenShot();
                 TestUtil.click(Verify,"verify its you clicked");
+                Thread.sleep(3000);
+                TestUtil.getScreenShot();
                 TestUtil.click(closeButton,"Close add");
                 TestUtil.sendKeys(Pincode,"411046","Pincode enter");
                 TestUtil.click(ViewDetail1,"View Detail clicked");
@@ -231,33 +236,13 @@ TestUtil util = new TestUtil();
                 TestUtil.assertText(No,"No");
                 TestUtil.getScreenShot();
             }
-//            else {
-//                NewUser_page user = new NewUser_page();
-//                user.byname();
-//            }
+
         }
         catch (NoSuchElementException e){
             NewUser_page user = new NewUser_page();
             user.byname();
         }
-//        try {
-//            TestUtil.click(Insurance, "Insurance clicked");
-//            Thread.sleep(2000);
-//            TestUtil.getScreenShot();
-//        } catch (TimeoutException e) {
-//                NewUser_page user = new NewUser_page();
-//                user.byname();
-//        }
-//
-//        if(Insurance.isDisplayed()){
-//            TestUtil.click(Insurance, "Insurance clicked");
-//            Thread.sleep(2000);
-//            TestUtil.getScreenShot();
-//        }
-//        else {
-//            NewUser_page user = new NewUser_page();
-//                user.byname();
-//        }
+
     }
     public void prof(){
         TestUtil.click(cancel,"");
@@ -298,25 +283,15 @@ TestUtil util = new TestUtil();
     public void byname() throws InterruptedException {
         Thread.sleep(3000);
         TestUtil.click(closeButton,"Close add");
-      //  TestUtil.click(viewdoc,"view doc Select");
         Thread.sleep(4000);
-       // TestUtil.assertText(AshokMishra,"ASHOK MISHRA");
-//        Thread.sleep(4000);
-//        TestUtil.click(back,"Back clicked");
-//        Thread.sleep(4000);
-//        TestUtil.click(Home,"Home clicked");
-//        Thread.sleep(4000);
-//        TestUtil.click(Insurance,"");
-//        Thread.sleep(4000);
-        //TestUtil.click(Active,"");
         TestUtil.assertText(HealthMember,"Ashok (You)");
         TestUtil.assertText(HEalthNominee,"Kalpana");
        // TestUtil.assertText(AddNow_vehicle,"Add now");
         TestUtil.click(AddNow_vehicle,"Vehicle Add Now clicked");
         TestUtil.assertText(AddNow_vehicleclicked,"ex: MH01AB1234");
         TestUtil.click(closeButton,"Close add");
-        Thread.sleep(2000);
-        util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Add now\").instance(2)"),"up",1);
+        Thread.sleep(4000);
+        util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Family member\").instance(1)"), "up", 1);
         Thread.sleep(2000);
         TestUtil.getScreenShot();
         TestUtil.click(closeButton,"Close add Other");
@@ -325,21 +300,12 @@ TestUtil util = new TestUtil();
         Thread.sleep(2000);
         TestUtil.getScreenShot();
         TestUtil.click(closeButton,"Close add now Health");
-//        util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Add now\").instance(1)"),"up",1);
-//        LogUtils.info("Life Add Now Clicked");
-      //  TestUtil.assertText(AddNow_Life,"Add now");
         TestUtil.click(AddNow_Life,"Life Add Now clicked");
         Thread.sleep(2000);
           TestUtil.getScreenShot();
         TestUtil.click(closeButton,"Close add Life");
-       // TestUtil.assertText(AddNow_Other,"Add now");
-       // TestUtil.click(AddNow_Other,"Other Add Now clicked");
-       // TestUtil.getScreenShot();
         util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"MARUTI SUZUKI DZIRE\")"),"down",1);
-       // util.scrolltoElement("new UiSelector().text(\"Maruti Dzire\")");
         Thread.sleep(3000);
-     //   TestUtil.click(Selectvehicle,"Vehicle clicked");
-
         TestUtil.assertText(AshokMishra,"ASHOK MISHRA");
         TestUtil.assertText(Comprehensivecover,"Comprehensive cover");
         TestUtil.assertText(policyNo,"D167831863 ");
