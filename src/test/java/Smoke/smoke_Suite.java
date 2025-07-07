@@ -3,6 +3,8 @@ package Smoke;
 import Base.TestBase;
 import Page.Login;
 import Page.NewUser_page;
+import Page.AyushPay;
+import Page.dashboard_Page;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -20,7 +22,9 @@ public class smoke_Suite extends TestBase {
     }
 
     Login lg;
+    AyushPay Ap;
     NewUser_page user;
+    dashboard_Page dp;
 
 
     @BeforeMethod
@@ -29,8 +33,9 @@ public class smoke_Suite extends TestBase {
         TurtlemintProApp();
         lg = new Login();
         user = new NewUser_page();
-
+        Ap = new AyushPay();
         lg.login();
+        dp = new dashboard_Page();
 
     }
 
@@ -53,9 +58,20 @@ public class smoke_Suite extends TestBase {
     @Test(priority = 2,description = "Check policy Fetch through FN,LN")
     public void checkbyFNLN() throws InterruptedException {
         user.profileCreation("Ashok","mishra","07-09-1975");
-        user.byname();
+
     }
 
+    @Test(priority = 4,description = "Check AyushPay")
+    public void checkAyushpay() throws InterruptedException {
+       Ap.AyushPayCheck();
+    }
+
+    @Test(priority = 5,description = "Check Dashboard")
+    public void checkHomepage() throws InterruptedException {
+
+        //lg.login();
+       dp.dashboardCheck();
+    }
 
     @AfterMethod
     public void close() {

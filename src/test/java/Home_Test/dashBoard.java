@@ -4,6 +4,7 @@ import Base.TestBase;
 import Page.Login;
 import Page.NewUser_page;
 import Page.dashboard_Page;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,6 +21,8 @@ public class dashBoard extends TestBase {
     Login lg;
     dashboard_Page dash;
     NewUser_page user;
+
+
 
 
     @BeforeMethod
