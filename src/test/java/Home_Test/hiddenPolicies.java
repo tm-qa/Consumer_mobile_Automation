@@ -30,7 +30,7 @@ public class hiddenPolicies extends TestBase {
     public void Hiddenpolicy() throws InterruptedException {
 //        user.deleteAccount();
 //       lg.login();
-        user.profileCreation("appium","appium","10-10-1994");
+     //   user.profileCreation("appium","appium","10-10-1994");
         Hiddenpage.Hiddenpolicies();
 
 

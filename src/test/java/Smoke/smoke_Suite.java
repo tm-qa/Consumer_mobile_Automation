@@ -1,10 +1,7 @@
 package Smoke;
 
 import Base.TestBase;
-import Page.Login;
-import Page.NewUser_page;
-import Page.AyushPay;
-import Page.dashboard_Page;
+import Page.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -25,6 +22,7 @@ public class smoke_Suite extends TestBase {
     AyushPay Ap;
     NewUser_page user;
     dashboard_Page dp;
+    FamilyAccount FA;
 
 
     @BeforeMethod
@@ -35,6 +33,7 @@ public class smoke_Suite extends TestBase {
         Ap = new AyushPay();
         lg.login();
         dp = new dashboard_Page();
+        FA = new FamilyAccount();
 
     }
 
@@ -67,11 +66,15 @@ public class smoke_Suite extends TestBase {
 
     @Test(priority = 5,description = "Check Dashboard")
     public void checkHomepage() throws InterruptedException {
-
         //lg.login();
        dp.dashboardCheck();
     }
 
+    @Test(priority = 6,description = "Check Family")
+    public void family() throws InterruptedException {
+     //  user.profileCreation1("appium","appium","10-10-1994");
+        FA.Family();
+    }
     @AfterMethod
     public void close() {
         driver.quit();
