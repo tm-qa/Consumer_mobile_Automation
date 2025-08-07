@@ -23,6 +23,7 @@ public class smoke_Suite extends TestBase {
     NewUser_page user;
     dashboard_Page dp;
     FamilyAccount FA;
+    findPolicy_page FP;
 
 
     @BeforeMethod
@@ -34,6 +35,7 @@ public class smoke_Suite extends TestBase {
         lg.login();
         dp = new dashboard_Page();
         FA = new FamilyAccount();
+        FP = new findPolicy_page();
 
     }
 
@@ -74,6 +76,12 @@ public class smoke_Suite extends TestBase {
     public void family() throws InterruptedException {
      //  user.profileCreation1("appium","appium","10-10-1994");
         FA.Family();
+    }
+
+    @Test(priority = 7,description = "Check Quote")
+    public void QuoteZoop() throws InterruptedException {
+        //  user.profileCreation1("appium","appium","10-10-1994");
+       FP.validRegNo("UK03B4273");
     }
     @AfterMethod
     public void close() {
