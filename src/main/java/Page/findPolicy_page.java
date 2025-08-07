@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import utils.LogUtils;
 import utils.TestUtil;
 
 
@@ -77,6 +78,23 @@ public class findPolicy_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
     WebElement back;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Renew\")")
+    WebElement Renew;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Proceed\").instance(1)")
+    WebElement Expertprocced;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Proceed\").instance(0)")
+    WebElement Renewprocced;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View\")")
+    WebElement ViewQuote;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"What is the best renewal amount I can obtain?\")")
+    WebElement Reason;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Save & Next\")")
+    WebElement Save;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"pincode\")")
     WebElement pincodee;
 
@@ -128,7 +146,7 @@ public class findPolicy_page extends TestBase {
 
 
     public void validRegNo(String regno) throws InterruptedException {
-
+//
         TestUtil.click(findaPolicy, "finda Policy clicked");
         TestUtil.click(Motor, "Motor clicked");
         TestUtil.click(vehicleRegistrationNumber, "Motor clicked");
@@ -139,8 +157,28 @@ public class findPolicy_page extends TestBase {
         TestUtil.assertText(MOTOR, "MOTOR");
         TestUtil.click(closeButton, "");
         TestUtil.click(back, "");
-        TestUtil.click(Insurance, "Insurance clicked");
-        TestUtil.click(verifyitsyou, "Click on Verify its You");
+        TestUtil.getScreenShot();
+
+        TestUtil.click(Renew, "Renew clicked");
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        TestUtil.click(Expertprocced, "Renew with expert clicked");
+        TestUtil.getScreenShot();
+        TestUtil.click(Reason, "Reason clicked");
+        TestUtil.click(Save, "Save clicked");
+        TestUtil.getScreenShot();
+        TestUtil.click(closeButton, "");
+        LogUtils.info("#####  Renew By my self stared  ####");
+        Thread.sleep(2000);
+        TestUtil.click(Renew, "Renew clicked");
+        TestUtil.click(Renewprocced, "Renew by myself clicked");
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        TestUtil.click(ViewQuote, "View quote clicked");
+        Thread.sleep(3000);
+        TestUtil.click(closeButton, "");
+       // TestUtil.click(Insurance, "Insurance clicked");
+       // TestUtil.click(verifyitsyou, "Click on Verify its You");
     }
     public void pincode(int pincode) throws InterruptedException {
         TestUtil.sendKeys(pincodee, String.valueOf(pincode),pincode+" - pincode Entered");
