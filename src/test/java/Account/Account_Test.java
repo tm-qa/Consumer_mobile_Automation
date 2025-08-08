@@ -20,7 +20,7 @@ public class Account_Test extends TestBase {
 
     @BeforeMethod
     public void start() throws MalformedURLException, InterruptedException {
-        TurtlemintProApp();
+        TurtlemintProApp("");
 
 
         lg = new Login();

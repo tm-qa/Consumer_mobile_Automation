@@ -33,8 +33,11 @@ public class findPolicy_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Life\")")
     WebElement Life;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Health\")")
-    WebElement Health;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"phoneNumber\")")
+    WebElement phoneNumber;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Credit Card\")")
+    WebElement CreditCard;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Other methods to fetch health policy\")")
     WebElement Otherhealthpolicy;
@@ -56,6 +59,15 @@ public class findPolicy_page extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Upload your policy\")")
     WebElement uploadPolicy;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Upload\")")
+    WebElement Upload;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Upload Policy\")")
+    WebElement Upload_Policy;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Search by\n" +
+            "other number\")")
+    WebElement Search_by_other_number;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"MOTOR\")")
     WebElement MOTOR;
@@ -213,4 +225,20 @@ public class findPolicy_page extends TestBase {
         Thread.sleep(6000);
         TestUtil.getScreenShot();
     }
+
+
+    public void findPolicyassert(){
+        TestUtil.click(findaPolicy, "finda Policy clicked");
+       //TestUtil.click(Health, "Health clicked");
+        TestUtil.assertText(Upload,"Upload");
+        TestUtil.click(Motor, "Motor clicked");
+        TestUtil.assertText(vehicleRegistrationNumber,"Enter your vehicle number");
+        TestUtil.click(Life, "Life clicked");
+        TestUtil.assertText(phoneNumber,"Enter your mobile number");
+        TestUtil.assertText(CreditCard,"Credit Card");
+//        TestUtil.assertText(Upload_Policy,"Upload Policy");
+//        TestUtil.assertText(Search_by_other_number,"Search by other number");
+
+    }
+
 }

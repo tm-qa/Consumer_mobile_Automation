@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import junit.framework.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -32,6 +33,11 @@ public class Login extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"phoneNumber\")")
     WebElement phoneNumber;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Temp UTM Content\")")
+    WebElement utmContent;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"tempUtmContent\")")
+    WebElement enterUtm;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"buttonComponent\")")
     WebElement conti;
@@ -73,6 +79,14 @@ public class Login extends TestBase {
 
           TestUtil.click(cancel, "cancel");
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
+//        try{
+//            if(utmContent.isDisplayed()){
+//                 TestUtil.sendKeys(enterUtm, "f5c74e45-3cc6-4c44-8f69-25343c4fec3a", "UTM content entered");
+//                TestUtil.click(conti, "continue");
+//            }
+//        } catch (NoSuchElementException e) {
+//            TestUtil.click(conti, "continue");
+//        }
         TestUtil.click(conti, "continue");
         otp();
     }

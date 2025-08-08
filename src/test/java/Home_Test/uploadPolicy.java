@@ -19,7 +19,7 @@ public class uploadPolicy extends TestBase {
 
     @BeforeClass
     public void start() throws IOException, InterruptedException {
-        TurtlemintProApp();
+        TurtlemintProApp("");
         up = new upload_file();
 
         lg = new Login();

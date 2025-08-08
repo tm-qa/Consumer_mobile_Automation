@@ -16,12 +16,13 @@
 
                 <groups>
                     <run>
-                        <include name="${groupName}"></include>
+                        <include name="stage"/>
+                        <include name="prod"/>
                     </run>
                 </groups>
         <classes>
-            <class name="Account.profile_Creation"/>
-
+<!--            <class name="Account.profile_Creation"/>-->
+            <class name="Smoke.smoke_Suite"/>
         </classes>
 
     </test>

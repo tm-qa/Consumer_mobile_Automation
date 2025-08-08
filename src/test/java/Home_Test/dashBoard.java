@@ -27,7 +27,7 @@ public class dashBoard extends TestBase {
 
     @BeforeMethod
     public void start() throws MalformedURLException, InterruptedException {
-        TurtlemintProApp();
+        TurtlemintProApp("");
         lg = new Login();
         dash = new dashboard_Page();
         user = new NewUser_page();

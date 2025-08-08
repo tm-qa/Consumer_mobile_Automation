@@ -8,11 +8,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import util.iTestListener;
+
 
 import java.net.MalformedURLException;
 
-@Listeners(iTestListener.class)
 @Test(groups = {"NEWProfileCreation"})
 public class profile_Creation extends TestBase {
 
@@ -26,7 +25,7 @@ public class profile_Creation extends TestBase {
 
     @BeforeMethod
     public void start() throws MalformedURLException, InterruptedException {
-        TurtlemintProApp();
+        TurtlemintProApp("");
         lg = new Login();
         user = new NewUser_page();
 
