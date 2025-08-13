@@ -22,7 +22,7 @@ public class findPolicy extends TestBase {
 
     @BeforeMethod
     public void start() throws IOException, InterruptedException {
-        TurtlemintProApp();
+        TurtlemintProApp("");
         upload_file up = new upload_file();
        // up.uploadFile();
         lg = new Login();
