@@ -22,7 +22,7 @@ public class findPolicy extends TestBase {
 
     @BeforeMethod
     public void start() throws IOException, InterruptedException {
-        TurtlemintProApp("");
+        TurtlemintProApp();
         upload_file up = new upload_file();
        // up.uploadFile();
         lg = new Login();
@@ -53,9 +53,8 @@ public class findPolicy extends TestBase {
         dash.name("GURUMUKH. SINGH");
     }
 
-    @Test(priority = 3,description = "valid with full name + Comprehensive")
+    @Test(priority = 3,description = "Find a policy validations")
     public void findpolicy() throws InterruptedException {
-
         dash.findPolicyassert();
     }
 

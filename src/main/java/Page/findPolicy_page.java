@@ -4,6 +4,7 @@ import Base.TestBase;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import junit.framework.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -29,6 +30,9 @@ public class findPolicy_page extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Motor\")")
     WebElement Motor;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Health\")")
+    WebElement Health;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Life\")")
     WebElement Life;
@@ -228,12 +232,16 @@ public class findPolicy_page extends TestBase {
 
 
     public void findPolicyassert(){
+        TestUtil.getScreenShot();
         TestUtil.click(findaPolicy, "finda Policy clicked");
-       //TestUtil.click(Health, "Health clicked");
+       TestUtil.click(Health, "Health clicked");
+        TestUtil.getScreenShot();
         TestUtil.assertText(Upload,"Upload");
         TestUtil.click(Motor, "Motor clicked");
+        TestUtil.getScreenShot();
         TestUtil.assertText(vehicleRegistrationNumber,"Enter your vehicle number");
         TestUtil.click(Life, "Life clicked");
+        TestUtil.getScreenShot();
         TestUtil.assertText(phoneNumber,"Enter your mobile number");
         TestUtil.assertText(CreditCard,"Credit Card");
 //        TestUtil.assertText(Upload_Policy,"Upload Policy");
