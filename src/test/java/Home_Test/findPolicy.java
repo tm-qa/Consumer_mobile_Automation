@@ -52,6 +52,10 @@ public class findPolicy extends TestBase {
         dash.validRegNo("UP32WN4357");
         dash.name("GURUMUKH. SINGH");
     }
+    @Test(priority = 3,description = "Find a policy validations")
+    public void findpolicy() throws InterruptedException {
+        dash.findPolicyassert();
+    }
 
     @AfterMethod
     public void close() {
