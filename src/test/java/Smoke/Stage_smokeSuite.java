@@ -6,9 +6,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import utils.TestUtil;
 
 
-
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
 
@@ -28,16 +29,24 @@ public class Stage_smokeSuite extends TestBase {
 
 
     @BeforeMethod
-    public void start() throws MalformedURLException, InterruptedException {
+    public void start(Method method) throws MalformedURLException, InterruptedException {
+        TestBase.MethodName = method.getName();
         TurtlemintProApp("");
         lg = new Login();
         user = new NewUser_page();
         Ap = new AyushPay();
-        lg.login();
+        if(method.getName().equals("InstallLink")){
+            System.out.println("second login start");
+            lg.stgLogin(method);
+        }else {
+            System.out.println("Existing login start");
+            lg.login();
+        }
+      //  lg.login();
         dp = new dashboard_Page();
         FA = new FamilyAccount();
         FP = new findPolicy_page();
-
+        user = new NewUser_page();
     }
 
     @Test(description = "Login And Logout with 6999912345 number",groups ={"stage"})
@@ -58,7 +67,7 @@ public class Stage_smokeSuite extends TestBase {
 
     @Test(priority = 2,description = "Check policy Fetch through FN,LN",groups ={"prod"})
     public void checkbyFNLN() throws InterruptedException {
-        user.profileCreation("Ashok","mishra","07-09-1975");
+        user.profileCreation("GAURAV","SINGH","14-07-1995");
 
     }
 
@@ -83,6 +92,14 @@ public class Stage_smokeSuite extends TestBase {
     public void QuoteZoop() throws InterruptedException {
         //  user.profileCreation1("appium","appium","10-10-1994");
        FP.validRegNo("UK03B4273");
+
+    }
+    public void InstallLink() throws InterruptedException {
+       // lg.stgLogin();
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        user.profileCreation("appium","appium","10-10-1994");
+      //  driver.navigate().back();
     }
     @AfterMethod
     public void close() {

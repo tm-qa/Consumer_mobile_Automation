@@ -9,10 +9,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.LogUtils;
 import utils.TestUtil;
+
+import java.lang.reflect.Method;
 
 public class Login extends TestBase {
     TestUtil util = new TestUtil();
+
     public Login() {
 
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -20,15 +24,15 @@ public class Login extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(25)")
     WebElement skipIntro;
-    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"FINISH\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"FINISH\")")
     WebElement Finish;
 
-    @AndroidFindBy(uiAutomator ="new UiSelector().resourceId(\"com.android.permissioncontroller:id/permission_allow_button\")" )
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.android.permissioncontroller:id/permission_allow_button\")")
     WebElement Allow;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.google.android.gms:id/cancel\")")
     WebElement cancel;
-    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Remind me later\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Remind me later\")")
     WebElement RemindLater;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"phoneNumber\")")
@@ -66,27 +70,36 @@ public class Login extends TestBase {
 
     public void login() throws InterruptedException {
 
-          TestUtil.click(Allow,"Allow clicked");
-//        Thread.sleep(5000);
-//        TestUtil.click(RemindLater,"remind later clicked");
-//        Thread.sleep(2000);
-
-//        TestUtil.click(skipIntro,"skipIntro clicked");
-//        Thread.sleep(3000);
-//        Finish.click();
-
-        // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
-
-          TestUtil.click(cancel, "cancel");
+        TestUtil.click(Allow, "Allow clicked");
+        TestUtil.click(cancel, "cancel");
         TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
-//        try{
-//            if(utmContent.isDisplayed()){
-//                 TestUtil.sendKeys(enterUtm, "f5c74e45-3cc6-4c44-8f69-25343c4fec3a", "UTM content entered");
-//                TestUtil.click(conti, "continue");
-//            }
-//        } catch (NoSuchElementException e) {
-//            TestUtil.click(conti, "continue");
-//        }
+        if (TestBase.env.equals("stage")) {
+            // TestUtil.sendKeys(enterUtm, "f5c74e45-3cc6-4c44-8f69-25343c4fec3a", "UTM content entered");
+            TestUtil.click(conti, "continue");
+        } else {
+            TestUtil.click(conti, "continue");
+        }
+        otp();
+    }
+
+    public void stgLogin(Method method) throws InterruptedException {
+        TestUtil.click(Allow, "Allow clicked");
+        TestUtil.click(cancel, "cancel");
+        if (method.getName().equals("findpolicyMobNo")) {
+            System.out.println("Mobile no fetch start");
+            TestUtil.sendKeys(phoneNumber, "2201771144", "mobile number entered");
+
+        } else if (method.getName().equals("findpolicyMobNoInstalllink")) {
+            LogUtils.info("install link and mobile no fetch flow started ");
+            TestUtil.sendKeys(phoneNumber, "1518998478", "mobile number entered");
+            TestUtil.sendKeys(enterUtm, "f5c74e45-3cc6-4c44-8f69-25343c4fec3a", "UTM content entered");
+
+        } else {
+            System.out.println("6999 flow started");
+            TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
+            TestUtil.sendKeys(enterUtm, "f5c74e45-3cc6-4c44-8f69-25343c4fec3a", "UTM content entered");
+        }
+        Thread.sleep(2000);
         TestUtil.click(conti, "continue");
         otp();
     }

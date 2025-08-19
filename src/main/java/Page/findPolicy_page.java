@@ -162,7 +162,6 @@ public class findPolicy_page extends TestBase {
 
 
     public void validRegNo(String regno) throws InterruptedException {
-//
         TestUtil.click(findaPolicy, "finda Policy clicked");
         TestUtil.click(Motor, "Motor clicked");
         TestUtil.click(vehicleRegistrationNumber, "Motor clicked");
