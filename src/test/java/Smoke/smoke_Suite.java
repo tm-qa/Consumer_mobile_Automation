@@ -7,7 +7,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import util.iTestListener;
+import utils.TestUtil;
 
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
 @Listeners(iTestListener.class)
@@ -27,8 +29,15 @@ public class smoke_Suite extends TestBase {
 
 
     @BeforeMethod
-    public void start() throws MalformedURLException, InterruptedException {
+    public void start(Method method) throws MalformedURLException, InterruptedException {
         TurtlemintProApp();
+        if(method.getName().equals("InstallLink")){
+            System.out.println("second login start");
+            lg.stgLogin(method);
+        }else {
+            System.out.println("Existing login start");
+            lg.login();
+        }
         lg = new Login();
         user = new NewUser_page();
         Ap = new AyushPay();
@@ -82,6 +91,14 @@ public class smoke_Suite extends TestBase {
     public void QuoteZoop() throws InterruptedException {
         //  user.profileCreation1("appium","appium","10-10-1994");
        FP.validRegNo("UK03B4273");
+    }
+
+    public void InstallLink() throws InterruptedException {
+        // lg.stgLogin();
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        user.profileCreation("appium","appium","10-10-1994");
+        //  driver.navigate().back();
     }
     @AfterMethod
     public void close() {

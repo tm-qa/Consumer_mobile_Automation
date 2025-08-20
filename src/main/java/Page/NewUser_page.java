@@ -79,6 +79,9 @@ TestUtil util = new TestUtil();
     @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Yes\")")
     WebElement Yes;
 
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"View Claim\")")
+    WebElement Viewclaim;
+
     @AndroidFindBy(uiAutomator ="new UiSelector().text(\"No\")")
     WebElement No;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View Details\")")
@@ -191,60 +194,87 @@ TestUtil util = new TestUtil();
 
 
 
-    public void profileCreation(String FN,String LN, String DOB) throws InterruptedException {
+    public void profileCreation(String FN, String LN, String DOB) throws InterruptedException {
         TestUtil.sendKeys(firstName, FN, "first Name select");
         TestUtil.sendKeys(lastName, LN, "last Name Select");
         TestUtil.sendKeys(dob, DOB, "DOB entered");
         Thread.sleep(1000);
         TestUtil.click(cont, "Continue clicked");
-        try {
-            if (Insurance.isDisplayed()) {
-                TestUtil.click(Insurance, "Insurance clicked");
-                Thread.sleep(6000);
-                TestUtil.getScreenShot();
-                LogUtils.info("Claims flow started");
+        if (TestBase.env.equals("stage")) {
+            Thread.sleep(2000);
+            TestUtil.getScreenShot();
+            driver.navigate().back();
+//            TestUtil.assertText(ConnectEmail, "Connect Gmail to Find Policies");
+//            TestUtil.assertText(AlternateMtd, "Try Alternate Methods");
+//            TestUtil.click(Skip, "Continue clicked");
+            TestUtil.click(closeButton, "close");
+        } else {
+            LogUtils.info("Prod methods started");
+        }
+
+        if(!TestBase.MethodName.equals("InstallLink")) {
+            try {
+                if (Insurance.isDisplayed()) {
+                    TestUtil.click(Insurance, "Insurance clicked");
+                    Thread.sleep(6000);
+                    TestUtil.getScreenShot();
+                    LogUtils.info("Claims flow started");
 //Claims
-                TestUtil.click(Home, "Home clicked");
-                TestUtil.click(findaPolicy, "Find a Policy clicked");
-                TestUtil.click(Motor, "Motor clicked");
-                TestUtil.sendKeys(MotorNumber, "MH12QD3579", "Vehicle number enter");
-                Thread.sleep(3000);
-                TestUtil.click(Search, "Search clicked");
-                Thread.sleep(5000);
-                TestUtil.click(back, "Cross clicked");
-                Thread.sleep(3000);
-                TestUtil.click(back, "back clicked");
-                TestUtil.click(Claim, "Claim clicked");
-                TestUtil.click(RaiseClaim, "RaiseClaim clicked");
-                TestUtil.click(ViewDetail, "View Detail clicked");
-                Thread.sleep(3000);
-                TestUtil.getScreenShot();
-                TestUtil.click(Verify, "verify its you clicked");
-                Thread.sleep(3000);
-                TestUtil.getScreenShot();
-                TestUtil.click(closeButton, "Close add");
-                TestUtil.sendKeys(Pincode, "411046", "Pincode enter");
-                TestUtil.click(ViewDetail1, "View Detail clicked");
-                Thread.sleep(3000);
+                    TestUtil.click(Home, "Home clicked");
+                    TestUtil.click(findaPolicy, "Find a Policy clicked");
+                    TestUtil.click(Motor, "Motor clicked");
+                    TestUtil.sendKeys(MotorNumber, "MH12QD3579", "Vehicle number enter");
+                    Thread.sleep(3000);
+                    TestUtil.click(Search, "Search clicked");
+                    Thread.sleep(5000);
+                    TestUtil.click(back, "Cross clicked");
+                    Thread.sleep(3000);
+                    TestUtil.click(back, "back clicked");
+                    TestUtil.click(Claim, "Claim clicked");
+                    TestUtil.click(RaiseClaim, "RaiseClaim clicked");
+                    TestUtil.click(ViewDetail, "View Detail clicked");
+                    Thread.sleep(3000);
+                    TestUtil.getScreenShot();
+                    TestUtil.click(Verify, "verify its you clicked");
+                    Thread.sleep(3000);
+                    TestUtil.getScreenShot();
+                    TestUtil.click(closeButton, "Close add");
+                    TestUtil.sendKeys(Pincode, "411046", "Pincode enter");
+                    TestUtil.click(ViewDetail1, "View Detail clicked");
+                    Thread.sleep(3000);
 //                TestUtil.click(closeButton,"Close add");
 //                Thread.sleep(3000);
-                TestUtil.getScreenShot();
-                TestUtil.click(AddDoc, "Add Policy Document clicked");
-                Thread.sleep(3000);
-                TestUtil.getScreenShot();
-                TestUtil.click(back2, "back clicked");
-                TestUtil.click(back, "back clicked");
-                TestUtil.assertText(Upload_your_policy, "Upload your policy");
-                TestUtil.click(RaiseClaim1, "raise a Claim clicked");
-                Thread.sleep(2000);
-                TestUtil.assertText(Yes, "Yes");
-                TestUtil.assertText(No, "No");
-                TestUtil.getScreenShot();
-            }
+                    TestUtil.getScreenShot();
+                    TestUtil.click(AddDoc, "Add Policy Document clicked");
+                    Thread.sleep(3000);
+                    TestUtil.getScreenShot();
+                    TestUtil.click(back2, "back clicked");
+                    TestUtil.click(back, "back clicked");
+                    TestUtil.assertText(Upload_your_policy, "Upload your policy");
+                    TestUtil.click(RaiseClaim1, "raise a Claim clicked");
+                    Thread.sleep(2000);
+                }
 
-        } catch (NoSuchElementException e) {
-            NewUser_page user = new NewUser_page();
-            user.byname();
+                if (TestBase.env.equals("stage")) {
+                    TestUtil.assertText(Yes, "Yes");
+                    TestUtil.assertText(No, "No");
+                    TestUtil.click(Yes, "claim raised");
+                    Thread.sleep(2000);
+                    TestUtil.getScreenShot();
+                    driver.navigate().back();
+                    TestUtil.click(Viewclaim, "click on view claim status");
+                    Thread.sleep(2000);
+                    TestUtil.getScreenShot();
+                } else if (TestBase.env.equals("prod")) {
+                    TestUtil.assertText(Yes, "Yes");
+                    TestUtil.assertText(No, "No");
+                    TestUtil.getScreenShot();
+                }
+
+            } catch (NoSuchElementException e) {
+                NewUser_page user = new NewUser_page();
+                user.byname();
+            }
         }
     }
     public void profileCreation1(String FN,String LN, String DOB) throws InterruptedException {
