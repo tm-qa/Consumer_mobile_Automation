@@ -30,7 +30,15 @@ public class smoke_Suite extends TestBase {
 
     @BeforeMethod
     public void start(Method method) throws MalformedURLException, InterruptedException {
+        TestBase.MethodName = method.getName();
         TurtlemintProApp();
+        lg = new Login();
+        user = new NewUser_page();
+        Ap = new AyushPay();
+        //lg.login();
+        dp = new dashboard_Page();
+        FA = new FamilyAccount();
+        FP = new findPolicy_page();
         if(method.getName().equals("InstallLink")){
             System.out.println("second login start");
             lg.stgLogin(method);
@@ -38,13 +46,6 @@ public class smoke_Suite extends TestBase {
             System.out.println("Existing login start");
             lg.login();
         }
-        lg = new Login();
-        user = new NewUser_page();
-        Ap = new AyushPay();
-        lg.login();
-        dp = new dashboard_Page();
-        FA = new FamilyAccount();
-        FP = new findPolicy_page();
 
     }
 
@@ -52,13 +53,6 @@ public class smoke_Suite extends TestBase {
     public void login_logout_with_699912345() throws InterruptedException {
         user.profileLogout();
     }
-    @Test(priority = 3, description = "NEW Profile creation with 6999912345 number")
-    public void ProfileCreation() throws InterruptedException {
-        user.deleteAccount();
-        user.prof();
-        user.profileCreation("appium","appium","10-10-1994");
-    }
-
     @Test(priority = 1,description = "Delete Account with 6999912345 number")
     public void DeleteAccount() throws InterruptedException {
         user.deleteAccount();
@@ -68,6 +62,13 @@ public class smoke_Suite extends TestBase {
     public void checkbyFNLN() throws InterruptedException {
         user.profileCreation("Ashok","mishra","07-09-1975");
 
+    }
+
+    @Test(priority = 3, description = "NEW Profile creation with 6999912345 number")
+    public void ProfileCreation() throws InterruptedException {
+        user.deleteAccount();
+        user.prof();
+        user.profileCreation("appium","appium","10-10-1994");
     }
 
     @Test(priority = 4,description = "Check AyushPay")
@@ -91,14 +92,17 @@ public class smoke_Suite extends TestBase {
     public void QuoteZoop() throws InterruptedException {
         //  user.profileCreation1("appium","appium","10-10-1994");
        FP.validRegNo("UK03B4273");
+        user.deleteAccount();
     }
-
+@Test(priority = 8,description = "Install link")
     public void InstallLink() throws InterruptedException {
-        // lg.stgLogin();
+        if(TestBase.env.equals("prod")){
+            System.out.println("Ignoring InstallLink on PROD");
+            return;
+        }
         Thread.sleep(2000);
         TestUtil.getScreenShot();
         user.profileCreation("appium","appium","10-10-1994");
-        //  driver.navigate().back();
     }
     @AfterMethod
     public void close() {

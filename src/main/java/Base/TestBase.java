@@ -7,14 +7,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class TestBase {
-
+    public static String env;
+    public static String MethodName;
    public static AndroidDriver driver;
 
    public static void TurtlemintProApp() throws MalformedURLException, InterruptedException {
 
       DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
-      desiredCapabilities.setCapability("deviceName", "Pixel 7");
+      desiredCapabilities.setCapability("deviceName", "Pixel 8 Pro");
       desiredCapabilities.setCapability("udid", "emulator-5554");
       desiredCapabilities.setCapability("platformName", "Android");
       desiredCapabilities.setCapability("platformVersion", "12");
@@ -27,6 +28,11 @@ public class TestBase {
       desiredCapabilities.setCapability("appActivity", "com.turtlemintconsumerapp.MainActivity");
 
 
+//       desiredCapabilities.setCapability("appPackage", "com.turtlemintconsumerapp.dev");
+//       desiredCapabilities.setCapability("appActivity", "com.turtlemintconsumerapp.MainActivity");
+
+       String apk = desiredCapabilities.getCapability("appPackage").toString();
+       env = apk.contains(".dev") ? "stage" : "prod";
       URL url = new URL("http://127.0.0.1:4723/");
 
       driver = new AndroidDriver(url, desiredCapabilities);

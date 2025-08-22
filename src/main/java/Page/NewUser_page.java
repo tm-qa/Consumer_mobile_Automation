@@ -36,7 +36,13 @@ TestUtil util = new TestUtil();
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"buttonComponent\")")
     WebElement cont;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Connect Gmail to Find Policies\")")
+    WebElement ConnectEmail;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Try Alternate Methods\")")
+    WebElement AlternateMtd;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Skip\")")
+    WebElement Skip;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Life\")")
     WebElement Life;
@@ -204,9 +210,9 @@ TestUtil util = new TestUtil();
             Thread.sleep(2000);
             TestUtil.getScreenShot();
             driver.navigate().back();
-//            TestUtil.assertText(ConnectEmail, "Connect Gmail to Find Policies");
-//            TestUtil.assertText(AlternateMtd, "Try Alternate Methods");
-//            TestUtil.click(Skip, "Continue clicked");
+            TestUtil.assertText(ConnectEmail, "Connect Gmail to Find Policies");
+            TestUtil.assertText(AlternateMtd, "Try Alternate Methods");
+            TestUtil.click(Skip, "Continue clicked");
             TestUtil.click(closeButton, "close");
         } else {
             LogUtils.info("Prod methods started");

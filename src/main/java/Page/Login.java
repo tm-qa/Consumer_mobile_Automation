@@ -83,6 +83,7 @@ public class Login extends TestBase {
     }
 
     public void stgLogin(Method method) throws InterruptedException {
+
         TestUtil.click(Allow, "Allow clicked");
         TestUtil.click(cancel, "cancel");
         if (method.getName().equals("findpolicyMobNo")) {
