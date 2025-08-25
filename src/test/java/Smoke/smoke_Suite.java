@@ -84,7 +84,7 @@ public class smoke_Suite extends TestBase {
 
     @Test(priority = 5,description = "Check Dashboard")
     public void checkHomepage() throws InterruptedException {
-        //lg.login();
+
        dp.dashboardCheck();
     }
 
