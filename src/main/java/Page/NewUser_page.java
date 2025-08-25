@@ -72,7 +72,7 @@ TestUtil util = new TestUtil();
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(1)")
     WebElement back2;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Claims\").instance(1)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Claims\")")
     WebElement Claim;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Raise a claim\")")
@@ -85,7 +85,7 @@ TestUtil util = new TestUtil();
     @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Yes\")")
     WebElement Yes;
 
-    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"View Claim\")")
+    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"View claim status\")")
     WebElement Viewclaim;
 
     @AndroidFindBy(uiAutomator ="new UiSelector().text(\"No\")")
@@ -130,8 +130,22 @@ TestUtil util = new TestUtil();
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Insurance\")")
     WebElement Insurance;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Active\")")
-    WebElement Active;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Gaurav\").instance(1)")
+    WebElement Gaurav;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Pradip Kumar\").instance(1)")
+    WebElement Pradip;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"ex: Father\")")
+    WebElement relation;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Father\")")
+    WebElement father;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add\")")
+    WebElement Add;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(16)")
+    WebElement PolicyCard;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"How to claim?\")")
+    WebElement cl;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Maruti Dzire\")")
     WebElement Selectvehicle;
@@ -218,8 +232,9 @@ TestUtil util = new TestUtil();
             LogUtils.info("Prod methods started");
         }
 
-        if(!TestBase.MethodName.equals("InstallLink")) {
+        if(!TestBase.MethodName.equals("InstallLink")&& !TestBase.MethodName.equals("checkbyFNLN"))  {
             try {
+                TestUtil.waitUntilVisibilityOfElement(Insurance);
                 if (Insurance.isDisplayed()) {
                     TestUtil.click(Insurance, "Insurance clicked");
                     Thread.sleep(6000);
@@ -243,8 +258,10 @@ TestUtil util = new TestUtil();
                     TestUtil.getScreenShot();
                     TestUtil.click(Verify, "verify its you clicked");
                     Thread.sleep(3000);
-                    TestUtil.getScreenShot();
                     TestUtil.click(closeButton, "Close add");
+                    TestUtil.click(Verify, "verify its you clicked");
+                    Thread.sleep(3000);
+                    TestUtil.getScreenShot();
                     TestUtil.sendKeys(Pincode, "411046", "Pincode enter");
                     TestUtil.click(ViewDetail1, "View Detail clicked");
                     Thread.sleep(3000);
@@ -282,10 +299,33 @@ TestUtil util = new TestUtil();
                 user.byname();
             }
         }
+        if(!TestBase.MethodName.equals("ProfileCreation")) {
+            TestUtil.click(Insurance, "Insurance clicked");
+            Thread.sleep(2000);
+            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Others\")"), "up", 1);
+            TestUtil.getScreenShot();
+            if (TestBase.MethodName.equals("InstallLink")) {
+                System.out.println("Install link flow started");
+                TestUtil.click(Pradip, "Pradip life policy clicked");
+                TestUtil.click(relation, "Relation clicked");
+                TestUtil.click(father, "Father clicked");
+                TestUtil.click(Add, "Add clicked");
+            } else {
+                System.out.println("Gaurav Policy flow started");
+                TestUtil.click(Gaurav, "Gaurav life policy clicked");
+            }
+            TestUtil.click(PolicyCard, "Policy card clicked");
+            TestUtil.click(knowpolicy, "Know Your policy");
+            Thread.sleep(1000);
+            TestUtil.click(AddDoc, "Add Policy Document clicked");
+            TestUtil.getScreenShot();
+        }
+
     }
     public void profileCreation1(String FN,String LN, String DOB) throws InterruptedException {
         TestUtil.sendKeys(firstName, FN, "first Name select");
         TestUtil.sendKeys(lastName, LN, "last Name Select");
+        util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"DD-MM-YYYY\")"), "up", 1);
         TestUtil.sendKeys(dob, DOB, "DOB entered");
         Thread.sleep(1000);
         TestUtil.click(cont, "Continue clicked");
@@ -323,13 +363,13 @@ TestUtil util = new TestUtil();
         }
         TestUtil.click(Deleteacoount,"last Name Select");
         lg.otp();
-        Thread.sleep(25000);
+        Thread.sleep(30000);
         TestUtil.getScreenShot();
     }
 
     public void byname() throws InterruptedException {
         Thread.sleep(3000);
-        TestUtil.click(closeButton,"Close add");
+        TestUtil.click(closeButton,"Close addd");
         Thread.sleep(7000);
         TestUtil.assertText(HealthMember,"Ashok (You)");
         TestUtil.assertText(HEalthNominee,"Kalpana");
