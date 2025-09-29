@@ -3,8 +3,10 @@ package Page;
 import Base.TestBase;
 import Page.Login;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -24,6 +26,7 @@ public class NewUser_page extends TestBase {
     TestUtil util = new TestUtil();
     Login lg = new Login();
     FamilyAccount fa = new FamilyAccount();
+
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"firstName\")")
     WebElement firstName;
@@ -113,6 +116,9 @@ public class NewUser_page extends TestBase {
     WebElement Vehiclename;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"MARUTI SUZUKI DZIRE\")")
     WebElement Vehiclename1;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"DIGIT GENERAL INSURANCE, Renewal premium: ₹ 12415.00\")")
+    WebElement Vehiclename2;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
     WebElement back1;
 
@@ -230,7 +236,8 @@ public class NewUser_page extends TestBase {
             LogUtils.info("Prod methods started");
         }
 
-        if (!TestBase.MethodName.equals("InstallLink") && !TestBase.MethodName.equals("checkbyFNLN")) {
+        if (!(TestBase.MethodName.equals("InstallLink") || TestBase.MethodName.equals("ProfileCreation") && TestBase.env.equals("stage"))) {
+            //
             try {
                 TestUtil.waitUntilVisibilityOfElement(Insurance);
                 if (Insurance.isDisplayed()) {
@@ -292,12 +299,13 @@ public class NewUser_page extends TestBase {
                     TestUtil.getScreenShot();
                 }
 
-            } catch (NoSuchElementException e) {
+            } catch (TimeoutException r) {
                 NewUser_page user = new NewUser_page();
                 user.byname();
             }
         }
-        if (!TestBase.MethodName.equals("ProfileCreation")) {
+        if (!TestBase.MethodName.equals("ProfileCreation") && (!TestBase.MethodName.equals("checkbyFNLN"))) {
+            driver.navigate().back();
             TestUtil.click(Insurance, "Insurance clicked");
             Thread.sleep(2000);
             util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Others\")"), "up", 1);
@@ -310,12 +318,12 @@ public class NewUser_page extends TestBase {
                 TestUtil.click(Add, "Add clicked");
             } else {
                 System.out.println("Gaurav Policy flow started");
-                TestUtil.click(Gaurav, "Gaurav life policy clicked");
+                //TestUtil.click(Gaurav, "Gaurav life policy clicked");
             }
             TestUtil.click(PolicyCard, "Policy card clicked");
             TestUtil.click(knowpolicy, "Know Your policy");
             Thread.sleep(1000);
-            TestUtil.click(AddDoc, "Add Policy Document clicked");
+            //TestUtil.click(AddDoc, "Add Policy Document clicked");
             TestUtil.getScreenShot();
         }
 
@@ -338,6 +346,9 @@ public class NewUser_page extends TestBase {
     }
 
     public void profileLogout() throws InterruptedException {
+        if (TestBase.env.equals("stage")) {
+            TestUtil.click(Skip, "Skip clicked");
+        }
         try {
             TestUtil.click(Account, "Account clicked");
 
@@ -357,7 +368,9 @@ public class NewUser_page extends TestBase {
             TestUtil.click(Account, "Account clicked");
 
         } catch (Exception e) {
-            TestUtil.click(closeButton, "Close add");
+            driver.navigate().back();
+            System.out.println("catch runs");
+            // TestUtil.click(closeButton, "Close add");
             TestUtil.click(Account, "Account clicked");
         }
         TestUtil.click(Deleteacoount, "last Name Select");
@@ -370,6 +383,7 @@ public class NewUser_page extends TestBase {
         Thread.sleep(3000);
         TestUtil.click(closeButton, "Close addd");
         Thread.sleep(7000);
+        driver.navigate().back();
         TestUtil.assertText(HealthMember, "Ashok (You)");
         TestUtil.assertText(HEalthNominee, "Kalpana");
         // TestUtil.assertText(AddNow_vehicle,"Add now");
@@ -394,17 +408,18 @@ public class NewUser_page extends TestBase {
         try {
             util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"MARUTI SUZUKI DZIRE\")"), "down", 1);
             TestUtil.click(Vehiclename1, "Vehicle card click");
-            driver.navigate().back();
+            //driver.navigate().back();
         } catch (NoSuchElementException e) {
             //util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Maruti Dzire\")"), "down", 1);
             TestUtil.click(Vehiclename1, "Vehicle card catch click");
         }
         Thread.sleep(3000);
+        TestUtil.click(Vehiclename2, "general insurance clicked");
         TestUtil.assertText(AshokMishra, "ASHOK MISHRA");
         TestUtil.assertText(Comprehensivecover, "Comprehensive cover");
         TestUtil.assertText(policyNo, "D167831863 ");
-        TestUtil.click(Comprehensivecover, "Comprehensive cover clicked");
-        TestUtil.click(knowpolicy, "Know Your policy");
+//        TestUtil.click(Comprehensivecover, "Comprehensive cover clicked");
+//        TestUtil.click(knowpolicy, "Know Your policy");
         Thread.sleep(2000);
         TestUtil.getScreenShot();
         TestUtil.assertText(Od, "Own Damage");

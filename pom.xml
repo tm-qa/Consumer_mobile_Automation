@@ -27,14 +27,19 @@
             <artifactId>java-client</artifactId>
             <version>9.1.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.slack.api</groupId>
+            <artifactId>slack-api-client</artifactId>
+            <version>1.39.3</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.9.0</version>
+            <version>7.8.0</version>
             <scope>test</scope>
         </dependency>
+
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
