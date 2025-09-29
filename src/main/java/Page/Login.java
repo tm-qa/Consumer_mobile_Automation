@@ -65,7 +65,7 @@ public class Login extends TestBase {
 
     public void login() throws InterruptedException {
 
-          TestUtil.click(Allow,"Allow clicked");
+        // TestUtil.click(Allow,"Allow clicked");
 //        Thread.sleep(5000);
 //        TestUtil.click(RemindLater,"remind later clicked");
 //        Thread.sleep(2000);
@@ -76,15 +76,24 @@ public class Login extends TestBase {
 
         // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
 
-          TestUtil.click(cancel, "cancel");
-        TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
-        TestUtil.click(conti, "continue");
-        otp();
+        if(TestBase.MethodName.equals("checkbyFNLN") && TestBase.env.equals("stage")){
+            TestUtil.click(cancel, "cancel");
+            System.out.println("random start");
+         String mob=  TestUtil.getRandomMobileNumber();
+            TestUtil.sendKeys(phoneNumber, mob, "mobile number entered");
+            TestUtil.click(conti, "continue");
+            otp();
+        }else {
+            TestUtil.click(cancel, "cancel");
+            TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
+            TestUtil.click(conti, "continue");
+            otp();
+        }
     }
 
     public void stgLogin(Method method) throws InterruptedException {
 
-        TestUtil.click(Allow, "Allow clicked");
+     //   TestUtil.click(Allow, "Allow clicked");
         TestUtil.click(cancel, "cancel");
         if (method.getName().equals("findpolicyMobNo")) {
             System.out.println("Mobile no fetch start");
@@ -97,7 +106,8 @@ public class Login extends TestBase {
 
         } else {
             System.out.println("6999 flow started");
-            TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
+            String mob = TestUtil.getRandomMobileNumber();
+            TestUtil.sendKeys(phoneNumber, mob, "mobile number entered");
             TestUtil.sendKeys(enterUtm, "f5c74e45-3cc6-4c44-8f69-25343c4fec3a", "UTM content entered");
         }
         Thread.sleep(2000);

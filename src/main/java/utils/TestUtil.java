@@ -42,6 +42,21 @@ public class TestUtil extends TestBase {
         return timeStamp;
     }
 
+    public static String getRandomMobileNumber() {
+        String startDigits[] = {"1", "2", "3"};
+        StringBuilder number = new StringBuilder();
+
+        // Pick first digit randomly from 1, 2, or 3
+        number.append(startDigits[(int) (Math.random() * startDigits.length)]);
+
+        // Add remaining 9 random digits
+        for (int i = 0; i < 9; i++) {
+            number.append((int) (Math.random() * 10));
+        }
+
+        return number.toString();
+    }
+
     public void GenerateRegNo() {
         int alpha1 = 'A' + (int) (Math.random() * ('Z' - 'A'));
         int alpha2 = 'A' + (int) (Math.random() * ('Z' - 'A'));
@@ -172,7 +187,7 @@ public class TestUtil extends TestBase {
     }
 
     public static void waitUntilVisibilityOfElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

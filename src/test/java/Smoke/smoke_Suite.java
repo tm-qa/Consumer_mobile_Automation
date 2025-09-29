@@ -2,13 +2,14 @@ package Smoke;
 
 import Base.TestBase;
 import Page.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import com.slack.api.methods.SlackApiException;
+import io.qameta.allure.Allure;
+import org.testng.annotations.*;
 import util.iTestListener;
 import utils.TestUtil;
-
+import org.openqa.selenium.interactions.Actions;
+import javax.swing.*;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
@@ -29,6 +30,8 @@ public class smoke_Suite extends TestBase {
 
     PolicyFetch pf;
 
+
+
     @BeforeMethod
     public void start(Method method) throws MalformedURLException, InterruptedException {
         TestBase.MethodName = method.getName();
@@ -41,10 +44,13 @@ public class smoke_Suite extends TestBase {
         FA = new FamilyAccount();
         FP = new findPolicy_page();
         pf = new PolicyFetch();
-        if(method.getName().equals("InstallLink")|| method.getName().equals("findpolicyMobNoInstalllink")){
+        if (method.getName().equals("InstallLink") ||
+                method.getName().equals("findpolicyMobNoInstalllink") ||
+                TestBase.MethodName.equals("findpolicyMobNo")) {
+
             System.out.println("second login start");
             lg.stgLogin(method);
-        }else {
+        } else {
             System.out.println("Existing login start");
             lg.login();
         }
@@ -65,7 +71,7 @@ public class smoke_Suite extends TestBase {
         if (TestBase.env.equals("prod")) {
             user.profileCreation("Ashok", "mishra", "07-09-1975"); //Not calling claim flow
         } else {
-            user.profileCreation("GAURAV","SINGH","14-07-1995");
+            user.profileCreation("GAURAV","SINGH","14-07-1995");// calling claim for stage
         }
     }
 
@@ -74,7 +80,7 @@ public class smoke_Suite extends TestBase {
     public void ProfileCreation() throws InterruptedException {
         user.deleteAccount();
         user.prof();
-        user.profileCreation("appium","appium","10-10-1994");// Calling claim flow
+        user.profileCreation("appium","appium","10-10-1994");// Calling claim flow prod  //not calling claim for stage
     }
 
     @Test(priority = 4,description = "Check AyushPay")
@@ -90,53 +96,71 @@ public class smoke_Suite extends TestBase {
 
     @Test(priority = 6,description = "Check Family")
     public void family() throws InterruptedException {
-     //  user.profileCreation1("appium","appium","10-10-1994");
+      // user.profileCreation1("appium","appium","10-10-1994");
         FA.Family();
+        driver.navigate().back();
+        driver.navigate().back();
+        driver.navigate().back();
+       // driver.navigate().back();
+     user.deleteAccount();
     }
-
+/// Not applicable for stage as it requires some changes to be done in DB
     @Test(priority = 7,description = "Check Quote")
     public void QuoteZoop() throws InterruptedException {
-        //  user.profileCreation1("appium","appium","10-10-1994");
+          user.profileCreation1("appium","appium","10-10-1994");
        FP.validRegNo("UK03B4273");
         user.deleteAccount();
     }
 
     /// Stage methods
-    
-//@Test(priority = 8,description = "Install link")
-//    public void InstallLink() throws InterruptedException {
-//        if(TestBase.env.equals("prod")){
-//            System.out.println("Ignoring InstallLink on PROD");
-//            return;
-//        }
-//        Thread.sleep(2000);
-//        TestUtil.getScreenShot();
-//        user.profileCreation("appium","appium","10-10-1994");
-//    }
-//
-//    @Test(priority = 4,description = "Find a policy Alternate number")
-//    public void findpolicyalternateNo() throws InterruptedException {
-//        user.profileCreation1("dummy","demo","10-10-1994");
-//        pf.Alternate_no("3299010746");
-//    }
-//    @Test(priority = 5,description = "Find a policy by Mobile number")
-//    public void findpolicyMobNo() throws InterruptedException {
-//        pf.MobileNo();
+
+    @Test(priority = 8, description = "Install link")
+    public void InstallLink() throws InterruptedException {
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        user.profileCreation("appium", "appium", "10-10-1994");
+        driver.navigate().back();
+        driver.navigate().back();
+        driver.navigate().back();
+        user.deleteAccount();
+        Thread.sleep(5000);
+    }
+
+    @Test(priority = 9, description = "Find a policy Alternate number")
+    public void findpolicyalternateNo() throws InterruptedException {
 //        user.deleteAccount();
-//    }
-//
-//    @Test(priority = 6,description = "Find a policy by Mobile number and Install link")
-//    public void findpolicyMobNoInstalllink() throws InterruptedException {
-//        Thread.sleep(4000);
-//        TestUtil.getScreenShot();
-//        user.profileCreation1("dummy","demo","10-10-1994");
-//        Thread.sleep(4000);
-//        driver.navigate().back();
-//        pf.MobandInstallLink();
-//        user.deleteAccount();
-//    }
+//        lg.login();
+        user.profileCreation1("dummy", "demo", "10-10-1994");
+        pf.Alternate_no("3299010746");
+        user.deleteAccount();
+    }
+
+    @Test(priority = 10, description = "Find a policy by Mobile number")
+    public void findpolicyMobNo() throws InterruptedException {
+        pf.MobileNo();
+        user.deleteAccount();
+    }
+
+    @Test(priority = 11, description = "Find a policy by Mobile number and Install link")
+    public void findpolicyMobNoInstalllink() throws InterruptedException {
+        Thread.sleep(4000);
+        TestUtil.getScreenShot();
+        user.profileCreation1("dummy", "demo", "10-10-1994");
+        Thread.sleep(4000);
+        driver.navigate().back();
+        pf.MobandInstallLink();
+        user.deleteAccount();
+    }
+
+
     @AfterMethod
     public void close() {
+
         driver.quit();
+    }
+    @AfterClass
+    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
+        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
+        a.allureToSlack("Consumer App Smoke Suite Report");
     }
 }
