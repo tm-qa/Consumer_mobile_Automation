@@ -27,6 +27,7 @@ public class smoke_Suite extends TestBase {
     dashboard_Page dp;
     FamilyAccount FA;
     findPolicy_page FP;
+    Cashless cg;
 
     PolicyFetch pf;
 
@@ -44,6 +45,7 @@ public class smoke_Suite extends TestBase {
         FA = new FamilyAccount();
         FP = new findPolicy_page();
         pf = new PolicyFetch();
+        cg = new Cashless();
         if (method.getName().equals("InstallLink") ||
                 method.getName().equals("findpolicyMobNoInstalllink") ||
                 TestBase.MethodName.equals("findpolicyMobNo")) {
@@ -110,6 +112,11 @@ public class smoke_Suite extends TestBase {
           user.profileCreation1("appium","appium","10-10-1994");
        FP.validRegNo("UK03B4273");
         user.deleteAccount();
+    }
+    @Test(priority = 8,description = "Check Cashless Garage")
+    public void cashless_garage() throws InterruptedException {
+        user.profileCreation1("appium","appium","10-10-1994");
+        cg.HospotalSearch();
     }
 
     /// Stage methods
