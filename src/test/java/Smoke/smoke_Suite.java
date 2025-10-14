@@ -34,7 +34,7 @@ public class smoke_Suite extends TestBase {
 
 
     @BeforeMethod
-    public void start(Method method) throws MalformedURLException, InterruptedException {
+    public void start(Method method) throws IOException, InterruptedException {
         TestBase.MethodName = method.getName();
         TurtlemintProApp();
         lg = new Login();
