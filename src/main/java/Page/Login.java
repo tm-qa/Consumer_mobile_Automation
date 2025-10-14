@@ -11,10 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 import utils.LogUtils;
 import utils.TestUtil;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class Login extends TestBase {
     TestUtil util = new TestUtil();
+
     public Login() {
 
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -22,15 +24,15 @@ public class Login extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(25)")
     WebElement skipIntro;
-    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"FINISH\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"FINISH\")")
     WebElement Finish;
 
-    @AndroidFindBy(uiAutomator ="new UiSelector().resourceId(\"com.android.permissioncontroller:id/permission_allow_button\")" )
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.android.permissioncontroller:id/permission_allow_button\")")
     WebElement Allow;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.google.android.gms:id/cancel\")")
     WebElement cancel;
-    @AndroidFindBy(uiAutomator ="new UiSelector().text(\"Remind me later\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Remind me later\")")
     WebElement RemindLater;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"phoneNumber\")")
@@ -63,7 +65,7 @@ public class Login extends TestBase {
     WebElement TestName;
 
 
-    public void login() throws InterruptedException {
+    public void login() throws InterruptedException, IOException {
 
         // TestUtil.click(Allow,"Allow clicked");
 //        Thread.sleep(5000);
@@ -76,24 +78,40 @@ public class Login extends TestBase {
 
         // driver.findElement( AppiumBy.androidUIAutomator("new UiSelector().text(\"SKIP INTRO\")")).click();
 
-        if(TestBase.MethodName.equals("checkbyFNLN") && TestBase.env.equals("stage")){
+        if (TestBase.MethodName.equals("checkbyFNLN") && TestBase.env.equals("stage")) {
             TestUtil.click(cancel, "cancel");
             System.out.println("random start");
-         String mob=  TestUtil.getRandomMobileNumber();
+            String mob = TestUtil.getRandomMobileNumber();
             TestUtil.sendKeys(phoneNumber, mob, "mobile number entered");
             TestUtil.click(conti, "continue");
-            otp();
-        }else {
-            TestUtil.click(cancel, "cancel");
-            TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
-            TestUtil.click(conti, "continue");
-            otp();
+//            TestUtil.getLatestOtpFromLogs("8208805844","auth-service-676bbfcc89-fqvbq","avatar");
+//            otp();
+        } else {
+            if (TestBase.env.equals("stage")) {
+                TestUtil.click(cancel, "cancel");
+                TestUtil.sendKeys(phoneNumber, "1957285639", "mobile number entered");
+                TestUtil.click(conti, "continue");
+                TestUtil.getLatestOtpFromLogs("1957285639", "auth-service-db6bfff84-4jqrl", "avatar");
+                otp();
+            } else if (TestBase.env.equals("sanity")) {
+                TestUtil.click(cancel, "cancel");
+                TestUtil.sendKeys(phoneNumber, "7709302421", "mobile number entered");
+                TestUtil.click(conti, "continue");
+                TestUtil.getLatestOtpFromLogs("7709302421", "auth-service-5454499f5d-cgr8c", "sanity");
+                otp();
+            } else {
+                TestUtil.click(cancel, "cancel");
+                TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
+                TestUtil.click(conti, "continue");
+                otp();
+            }
+
         }
     }
 
     public void stgLogin(Method method) throws InterruptedException {
 
-     //   TestUtil.click(Allow, "Allow clicked");
+        //   TestUtil.click(Allow, "Allow clicked");
         TestUtil.click(cancel, "cancel");
         if (method.getName().equals("findpolicyMobNo")) {
             System.out.println("Mobile no fetch start");
@@ -116,11 +134,20 @@ public class Login extends TestBase {
     }
 
     public void otp() {
-        TestUtil.sendKeys(one, "1", "one clicked");
-        TestUtil.sendKeys(two, "2", "two clicked");
-        TestUtil.sendKeys(three, "3", "three clicked");
-        TestUtil.sendKeys(four, "4", "four clicked");
+//
+        if (env.equals("sanity")) {
+            TestUtil.sendKeys(one, TestUtil.Digi1, "one clicked");
+            TestUtil.sendKeys(two, TestUtil.Digi2, "two clicked");
+            TestUtil.sendKeys(three, TestUtil.Digi3, "three clicked");
+            TestUtil.sendKeys(four, TestUtil.Digi4, "four clicked");
+        } else {
+            TestUtil.sendKeys(one, "1", "one clicked");
+            TestUtil.sendKeys(two, "2", "two clicked");
+            TestUtil.sendKeys(three, "3", "three clicked");
+            TestUtil.sendKeys(four, "4", "four clicked");
+        }
     }
+
 
     public void profileSetting() {
         TestUtil.click(Account, "");

@@ -12,8 +12,10 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -35,6 +37,11 @@ public class TestUtil extends TestBase {
     public String full_name;
     public String RegNo;
     public static String plno;
+
+    public static String Digi1;
+    public static String Digi2;
+    public static String Digi3;
+    public static String Digi4;
 
 
     public static String getTimeStamp() {
@@ -70,6 +77,67 @@ public class TestUtil extends TestBase {
         System.out.println(RegNo + "IN test UTIL");
     }
 
+    public static void getLatestOtpFromLogs(String phoneNumber, String podName, String namespace) throws IOException, InterruptedException {
+//        String update = String.format("aws eks --region ap-south-1 update-kubeconfig --name feature --profile consumer-eks-stage-746564851485");
+//        Process updateProfile = Runtime.getRuntime().exec(new String[]{"bash", "-c", update});
+//        updateProfile.waitFor();
+
+        // Build the command to fetch logs for the specific phone number
+        String command = String.format("kubectl logs %s -n %s | grep '%s'", podName, namespace, phoneNumber);
+
+        // Run the command in bash
+        Process process = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
+
+        // Read the output line by line
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//        BufferedReader readerError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+        String line;
+        String latestOtp = null;
+        String latestTimestamp = "";
+//        while ((line = readerError.readLine()) != null) {
+//            System.out.println(line); // error messages, e.g., Forbidden
+//        }
+
+        while ((line = reader.readLine()) != null) {
+            // Check if line has OTP for the specific phone number
+            if (line.contains("Generated OTP") && line.contains(phoneNumber)) {
+                // Example log: 2025-10-14T06:07:00.566Z [auth-service] info: Generated OTP for 8208805844 is 1234 :
+
+                // Extract timestamp (first 24 characters)
+                String timestamp = line.substring(0, 24).trim();
+
+                // Extract OTP using split instead of regex
+                String otp = line.split("is ")[1].trim().split(" ")[0];
+
+                // Save as latest OTP
+                latestTimestamp = timestamp;
+                latestOtp = otp;
+            }
+        }
+
+        // Clean up resources
+        reader.close();
+        process.destroy();
+
+        // Print result
+        if (latestOtp == null) {
+            System.out.println("❌ OTP not found for " + phoneNumber);
+        } else {
+            System.out.println("✅ Latest OTP for " + phoneNumber + " (time: " + latestTimestamp + ") -> " + latestOtp);
+        }
+        String[] laOtp = latestOtp.split(""); ///"" This means split between every character
+//        for (String digit : laOtp) {
+//            System.out.println(digit);
+//            // In your mobile automation, you can enter each digit separately here
+//        }
+        Digi1 = laOtp[0];
+        Digi2 = laOtp[1];
+        Digi3 = laOtp[2];
+        Digi4 = laOtp[3];
+    }
+
+
     public static void click(WebElement element, String msg) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -82,7 +150,7 @@ public class TestUtil extends TestBase {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(expected));
-        Assert.assertEquals(expected.getText(),actual);
+        Assert.assertEquals(expected.getText(), actual);
 
         LogUtils.info(actual);
     }
@@ -106,7 +174,7 @@ public class TestUtil extends TestBase {
 
     public static void scrolltoElement(String xpath) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView("+xpath+")"))));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(" + xpath + ")"))));
     }
 
 
@@ -116,6 +184,7 @@ public class TestUtil extends TestBase {
         element.isDisplayed();
         LogUtils.info(msg);
     }
+
     public void swipe(String direction) {
         Dimension size = driver.manage().window().getSize();
         int startX = size.width / 2;
@@ -192,12 +261,12 @@ public class TestUtil extends TestBase {
     }
 
 
-    public static void scroll(WebElement element,String pixels) {
+    public static void scroll(WebElement element, String pixels) {
         while (true) {
             if (element.isDisplayed()) {
                 JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("window.scrollBy(0,"+pixels+")");
-                LogUtils.info("Successfully Scrolled Down by "+pixels+" pixels");
+                js.executeScript("window.scrollBy(0," + pixels + ")");
+                LogUtils.info("Successfully Scrolled Down by " + pixels + " pixels");
                 break;
             }
         }
@@ -267,7 +336,7 @@ public class TestUtil extends TestBase {
     }
 
     public static void LoginLess() {
-          driver.get(System.getProperty("url"));
+        driver.get(System.getProperty("url"));
         //driver.get(prop.getProperty("localurl"));
 
         String Current = driver.getWindowHandle();
@@ -280,6 +349,7 @@ public class TestUtil extends TestBase {
         }
         driver.switchTo().window(Current);
     }
+
     public static String ninjaPresentDate() {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");

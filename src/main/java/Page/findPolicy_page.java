@@ -24,8 +24,12 @@ public class findPolicy_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Insurance\")")
     WebElement Insurance;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Search by insurance types\")")
-    WebElement Searchbyinsurancetypes;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Hero Motocorp Super Splendor\")")
+    WebElement Splender;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"DIGIT GENERAL INSURANCE, Action needed\")")
+    WebElement Digit;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"DIGIT GENERAL INSURANCE\")")
+    WebElement Digit1;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Motor\")")
     WebElement Motor;
@@ -72,6 +76,10 @@ public class findPolicy_page extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Verify It's You\")")
     WebElement verifyitsyou;
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"View Details\"]")
+    WebElement ViewDetail1;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"pincode\")")
+    WebElement Pincode;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Time to celebrate\")")
     WebElement timetocelebrate;
@@ -164,6 +172,16 @@ public class findPolicy_page extends TestBase {
         TestUtil.assertText(MOTOR, "MOTOR");
         TestUtil.click(closeButton, "");
         TestUtil.click(back, "");
+        TestUtil.click(Insurance, "Insurance clicked");
+        TestUtil.click(Splender,"Policy clicked");
+        TestUtil.click(Digit,"Digit clicked");
+//        TestUtil.click(verifyitsyou, "Click on Verify its You");
+        TestUtil.sendKeys(Pincode, "262310", "Pincode enter");
+//        TestUtil.click(Digit1,"Digit clicked");
+        TestUtil.click(ViewDetail1, "View Detail clicked");
+        driver.navigate().back();
+        driver.navigate().back();
+        driver.navigate().back();
         TestUtil.getScreenShot();
 
         TestUtil.click(Renew, "Renew clicked");
