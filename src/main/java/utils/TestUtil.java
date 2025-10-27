@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 
 
@@ -135,6 +137,18 @@ public class TestUtil extends TestBase {
         Digi2 = laOtp[1];
         Digi3 = laOtp[2];
         Digi4 = laOtp[3];
+    }
+
+    public static void GetOtpFromUser(){
+        /// It will open one dialog box to get input from user
+        String otp = JOptionPane.showInputDialog("Enter OTP received on your phone:");
+        String[] laOtp = otp.split("");
+        // Split OTP into digits
+        Digi1 = laOtp[0];
+        Digi2 = laOtp[1];
+        Digi3 = laOtp[2];
+        Digi4 = laOtp[3];
+        System.out.println("OTP captured successfully.");
     }
 
 
