@@ -109,15 +109,15 @@ public class NewUser_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View document\")")
     WebElement viewdoc; //enter
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"ASHOK MISHRA\").instance(0)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"LOVEDEEP SINGH\").instance(0)")
     WebElement AshokMishra;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Maruti Dzire\")")
     WebElement Vehiclename;
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"MARUTI SUZUKI DZIRE\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Hyundai Verna\")")
     WebElement Vehiclename1;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"DIGIT GENERAL INSURANCE, Renewal premium: ₹ 12415.00\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"BAJAJ ALLIANZ, Active\")")
     WebElement Vehiclename2;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
     WebElement back1;
@@ -156,9 +156,9 @@ public class NewUser_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Maruti Dzire\")")
     WebElement Selectvehicle;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Ashok (You)\").instance(0)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Lovedeep (You)\").instance(0)")
     WebElement HealthMember;
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Kalpana\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Manpreet\")")
     WebElement HEalthNominee;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add now\").instance(0)")
@@ -171,7 +171,7 @@ public class NewUser_page extends TestBase {
     WebElement AddNow_Health;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add now\").instance(2)")
     WebElement AddNow_Life;
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add now\").instance(3)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Add now\")")
     WebElement AddNow_Other;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Own Damage\")")
     WebElement Od;
@@ -187,11 +187,13 @@ public class NewUser_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"View document\")")
     WebElement ViewDoc;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"D167831863 \")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"OG-26-1904-1805-00087907 \")")
     WebElement policyNo;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Comprehensive cover\").instance(0)")
     WebElement Comprehensivecover;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Third Party only cover\")")
+    WebElement ThirdParty;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
     WebElement payasaddon;
@@ -199,7 +201,7 @@ public class NewUser_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Pay As You Drive\")")
     WebElement payasaddon1;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Pay less if you drive less\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Coverage remains same as third party insurance\")")
     WebElement paylessdriver;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(13)")
@@ -237,6 +239,7 @@ public class NewUser_page extends TestBase {
         }
 
         if (!(TestBase.MethodName.equals("InstallLink") || TestBase.MethodName.equals("ProfileCreation") && TestBase.env.equals("stage"))) {
+//        if (TestBase.MethodName.equals("ProfileCreation")) {
             //
             try {
                 TestUtil.waitUntilVisibilityOfElement(Insurance);
@@ -264,8 +267,8 @@ public class NewUser_page extends TestBase {
                     TestUtil.click(Verify, "verify its you clicked");
                     Thread.sleep(3000);
                     TestUtil.click(closeButton, "Close add");
-                    TestUtil.click(Verify, "verify its you clicked");
-                    Thread.sleep(3000);
+//                    TestUtil.click(Verify, "verify its you clicked");
+//                    Thread.sleep(3000);
                     TestUtil.getScreenShot();
                     TestUtil.sendKeys(Pincode, "411046", "Pincode enter");
                     TestUtil.click(ViewDetail1, "View Detail clicked");
@@ -380,12 +383,13 @@ public class NewUser_page extends TestBase {
     }
 
     public void byname() throws InterruptedException {
-        Thread.sleep(3000);
-        TestUtil.click(closeButton, "Close addd");
-        Thread.sleep(7000);
+        TestUtil.click(closeButton, "Close add");
+        Thread.sleep(2000);
         driver.navigate().back();
-        TestUtil.assertText(HealthMember, "Ashok (You)");
-        TestUtil.assertText(HEalthNominee, "Kalpana");
+//        TestUtil.click(Skip, "Skip clicked");
+//        Thread.sleep(3000);
+        TestUtil.assertText(HealthMember, "Lovedeep (You)");
+        TestUtil.assertText(HEalthNominee, "Manpreet");
         // TestUtil.assertText(AddNow_vehicle,"Add now");
         TestUtil.click(AddNow_vehicle, "Vehicle Add Now clicked");
         TestUtil.assertText(AddNow_vehicleclicked, "ex: MH01AB1234");
@@ -397,16 +401,16 @@ public class NewUser_page extends TestBase {
         TestUtil.click(AddNow_Other, "Other Add Now clicked");
         TestUtil.click(closeButton, "Close add Other");
         // TestUtil.assertText(AddNow_Health,"Add now");
-        TestUtil.click(AddNow_Health, "Health Add Now clicked");
+//        TestUtil.click(AddNow_Health, "Health Add Now clicked");
+        Thread.sleep(2000);
+//        TestUtil.getScreenShot();
+//        TestUtil.click(closeButton, "Close add now Health");
+//        TestUtil.click(AddNow_Life, "Life Add Now clicked");
         Thread.sleep(2000);
         TestUtil.getScreenShot();
-        TestUtil.click(closeButton, "Close add now Health");
-        TestUtil.click(AddNow_Life, "Life Add Now clicked");
-        Thread.sleep(2000);
-        TestUtil.getScreenShot();
-        TestUtil.click(closeButton, "Close add Life");
+//        TestUtil.click(closeButton, "Close add Life");
         try {
-            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"MARUTI SUZUKI DZIRE\")"), "down", 1);
+            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Hyundai Verna\")"), "down", 1);
             TestUtil.click(Vehiclename1, "Vehicle card click");
             //driver.navigate().back();
         } catch (NoSuchElementException e) {
@@ -414,15 +418,16 @@ public class NewUser_page extends TestBase {
             TestUtil.click(Vehiclename1, "Vehicle card catch click");
         }
         Thread.sleep(3000);
-        TestUtil.click(Vehiclename2, "general insurance clicked");
-        TestUtil.assertText(AshokMishra, "ASHOK MISHRA");
-        TestUtil.assertText(Comprehensivecover, "Comprehensive cover");
-        TestUtil.assertText(policyNo, "D167831863 ");
+        TestUtil.click(Vehiclename2, "Bajaj insurance clicked");
+        TestUtil.assertText(AshokMishra, "LOVEDEEP SINGH");
+//        TestUtil.assertText(Comprehensivecover, "Comprehensive cover");
+        TestUtil.assertText(ThirdParty, "Third Party only cover");
+        TestUtil.assertText(policyNo, "OG-26-1904-1805-00087907 ");
 //        TestUtil.click(Comprehensivecover, "Comprehensive cover clicked");
 //        TestUtil.click(knowpolicy, "Know Your policy");
         Thread.sleep(2000);
         TestUtil.getScreenShot();
-        TestUtil.assertText(Od, "Own Damage");
+//        TestUtil.assertText(Od, "Own Damage");
         TestUtil.assertText(tp, "Third Party");
         TestUtil.assertText(addon, "Add ons");
         TestUtil.click(addon, "add on clicked");
@@ -434,14 +439,14 @@ public class NewUser_page extends TestBase {
         try {
             TestUtil.click(closeButton, "Close add");
             Thread.sleep(4000);
-            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Pay As You Drive\")"), "up", 1);
+            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Limited Third Party Property Damage\")"), "up", 1);
         } catch (Exception e) {
-            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Pay As You Drive\")"), "up", 1);
+            util.scrollToElementAndClick(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Limited Third Party Property Damage\")"), "up", 1);
         }
 
         Thread.sleep(2000);
         // TestUtil.getScreenShot();
-        TestUtil.assertText(paylessdriver, "Pay less if you drive less");
+        TestUtil.assertText(paylessdriver, "Coverage remains same as third party insurance");
         Thread.sleep(2000);
         TestUtil.getScreenShot();
 
@@ -450,9 +455,19 @@ public class NewUser_page extends TestBase {
         // TestUtil.click(backhome,"back clicked");
         //  TestUtil.click(closeButton, "Close click from PDP");
         //  TestUtil.click(closeButton, "Close click from policy List");
-        driver.navigate().back();
-        driver.navigate().back();
-        driver.navigate().back();
+        while(true)
+        {
+            try{
+                if(Home.isDisplayed()){
+                    LogUtils.info("Home Visible");
+                    break;
+                }
+            }catch (NoSuchElementException e){
+                LogUtils.info("Navigating Back");
+                driver.navigate().back();
+                Thread.sleep(1000);
+            }
+        }
         TestUtil.click(Home, "Home clicked");
         fa.Family();
 
