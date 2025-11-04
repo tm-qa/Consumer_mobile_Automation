@@ -5,6 +5,8 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import junit.framework.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -101,9 +103,28 @@ public class Login extends TestBase {
                 otp();
             } else {
                 TestUtil.click(cancel, "cancel");
-                TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
-                TestUtil.click(conti, "continue");
-                otp();
+                if (TestBase.MethodName.equals("cashless_Hospital")) {
+                    TestUtil.sendKeys(phoneNumber, "8208805844", "mobile number entered");
+                    TestUtil.click(conti, "continue");
+                    TestUtil.GetOtpFromUser();
+                    otp();
+                    try {
+                        WebElement msg = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Unable to verify OTP for the user\"]"));
+                        if (msg.isDisplayed()) { // OTP wrong
+                            LogUtils.info("❌ Wrong OTP entered, reopening OTP popup...");
+//                    TestUtil.click(conti, "Reopen OTP popup");
+                            TestUtil.GetOtpFromUser();
+                            otp();
+                        }
+                    } catch (NoSuchElementException e) {
+                        LogUtils.info("Correct otp entered");
+                    }
+                }
+                else if(!TestBase.MethodName.equals("cashless_Hospital")) {
+                    TestUtil.sendKeys(phoneNumber, "6999912345", "mobile number entered");
+                    TestUtil.click(conti, "continue");
+                    otp();
+                }
             }
 
         }
@@ -140,11 +161,18 @@ public class Login extends TestBase {
             TestUtil.sendKeys(two, TestUtil.Digi2, "two clicked");
             TestUtil.sendKeys(three, TestUtil.Digi3, "three clicked");
             TestUtil.sendKeys(four, TestUtil.Digi4, "four clicked");
-        } else {
+        }else if(TestBase.MethodName.equals("cashless_Hospital")){
+            TestUtil.sendKeys(one, TestUtil.Digi1, "one clicked");
+            TestUtil.sendKeys(two, TestUtil.Digi2, "two clicked");
+            TestUtil.sendKeys(three, TestUtil.Digi3, "three clicked");
+            TestUtil.sendKeys(four, TestUtil.Digi4, "four clicked");
+        }
+        else {
             TestUtil.sendKeys(one, "1", "one clicked");
             TestUtil.sendKeys(two, "2", "two clicked");
             TestUtil.sendKeys(three, "3", "three clicked");
             TestUtil.sendKeys(four, "4", "four clicked");
+
         }
     }
 
