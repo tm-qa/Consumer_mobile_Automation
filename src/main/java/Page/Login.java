@@ -24,7 +24,7 @@ public class Login extends TestBase {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(25)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"SKIP INTRO\")")
     WebElement skipIntro;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"FINISH\")")
     WebElement Finish;
@@ -93,7 +93,7 @@ public class Login extends TestBase {
                 TestUtil.click(cancel, "cancel");
                 TestUtil.sendKeys(phoneNumber, "1957285639", "mobile number entered");
                 TestUtil.click(conti, "continue");
-                TestUtil.getLatestOtpFromLogs("1957285639", "auth-service-db6bfff84-4jqrl", "avatar");
+                TestUtil.getLatestOtpFromLogs("1957285639", "auth-service-db6bfff84-j6grw", "avatar");
                 otp();
             } else if (TestBase.env.equals("sanity")) {
                 TestUtil.click(cancel, "cancel");
