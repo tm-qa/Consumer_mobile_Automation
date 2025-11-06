@@ -1,21 +1,20 @@
 package Page;
 
 import Base.TestBase;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import junit.framework.Test;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import utils.LogUtils;
 import utils.TestUtil;
 
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Cashless extends TestBase {
 
-    public Cashless(){
+    public Cashless() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -46,6 +45,9 @@ public class Cashless extends TestBase {
     WebElement Cashlessgrg;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.android.permissioncontroller:id/permission_allow_one_time_button\")")
     WebElement Locatoionper;
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
+    WebElement closeButton;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"android:id/button1\")")
     WebElement Location;
 
@@ -56,7 +58,7 @@ public class Cashless extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"8114050920\")")
     WebElement Mobile;
 
-    ///Garage
+    /// Garage
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View more\").instance(1)")
     WebElement ViewMore;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View more\")")
@@ -69,6 +71,18 @@ public class Cashless extends TestBase {
     WebElement KnowPolicy;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View Cashless Hospitals\")")
     WebElement CashlesHospital;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"All Insurer\")")
+    WebElement AllInsurer;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Manipal Cigna Health Insurance\")")
+    WebElement cigna;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Enter Pincode\")")
+    WebElement pincode;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View All\")")
+    WebElement Viewall;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Gandhi Hospital\")")
+    WebElement Gandhi;
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(5)")
+    WebElement share;
 
     public void GarageSearch() throws InterruptedException {
         TestUtil.click(findaPolicy, "Find a Policy clicked");
@@ -80,89 +94,87 @@ public class Cashless extends TestBase {
         Thread.sleep(3000);
         TestUtil.click(back, "back clicked");
         TestUtil.click(Insurance, "Insurance clicked");
-        TestUtil.click(Hero,"Policy clicked");
-        TestUtil.click(Assetclk,"Asset clicked");
+        TestUtil.click(Hero, "Policy clicked");
+        TestUtil.click(Assetclk, "Asset clicked");
         TestUtil.sendKeys(Pincode, "411046", "Pincode enter");
         TestUtil.click(ViewDetail1, "View Detail clicked");
         Thread.sleep(3000);
-        TestUtil.click(Assetclk,"Asset clicked");
-        TestUtil.click(Cashlessgrg,"Cashless garage clicked");
+        TestUtil.click(Assetclk, "Asset clicked");
+        TestUtil.click(Cashlessgrg, "Cashless garage clicked");
         Thread.sleep(3000);
-        TestUtil.click(Locatoionper,"Loaction permission done");
+        TestUtil.click(Locatoionper, "Loaction permission done");
+        TestUtil.click(back, "Cross clicked");
+        Thread.sleep(2000);
         driver.navigate().back();
-        TestUtil.click(Cashlessgrg,"Cashless garage clicked");
+        TestUtil.click(Cashlessgrg, "Cashless garage clicked");
         Thread.sleep(4000);
 //        TestUtil.click(Location,"Loaction permission done");
 //        Thread.sleep(3000);
         TestUtil.getScreenShot();
-        TestUtil.sendKeys(City,"Pune","City entered");
+        TestUtil.sendKeys(City, "Pune", "City entered");
         Thread.sleep(3000);
         TestUtil.getScreenShot();
-        TestUtil.sendKeys(Garage,"KANPUR CAR CARE CENTER","Garage Name entered");
+        TestUtil.sendKeys(Garage, "KANPUR CAR CARE CENTER", "Garage Name entered");
         TestUtil.getScreenShot();
-        TestUtil.click(Mobile,"Mobile clicked");
+        TestUtil.click(Mobile, "Mobile clicked");
         Thread.sleep(3000);
         TestUtil.getScreenShot();
     }
-//    public void CashlessHospital() throws InterruptedException {
-//        TestUtil.click(Insurance, "Insurance clicked");
-//        ViewMoreLoop();
-//        TestUtil.click(PolicyPDP,"Policy clicked");
-//        TestUtil.click(KnowPolicy,"Know your policy clicked");
-//        Thread.sleep(2000);
-//       // TestUtil.click(back, "Cross clicked");
-//        TestUtil.scrolltoElement("new UiSelector().text(\"View Cashless Hospitals\")");
-//        TestUtil.getScreenShot();
-//        TestUtil.click(CashlesHospital,"Cashless Hospital clicked");
-//        Thread.sleep(2000);
-//        TestUtil.click(Locatoionper,"Loaction permission done");
-//        driver.navigate().back();
-//        TestUtil.click(CashlesHospital,"Cashless Hospital clicked");
-//        Thread.sleep(2000);
-//        TestUtil.getScreenShot();
 
-//        TestUtil.click(Assetclk,"Asset clicked");
-//        TestUtil.sendKeys(Pincode, "411046", "Pincode enter");
-//        TestUtil.click(ViewDetail1, "View Detail clicked");
-//        Thread.sleep(3000);
-//        TestUtil.click(Assetclk,"Asset clicked");
-//        TestUtil.click(Cashlessgrg,"Cashless garage clicked");
-//        Thread.sleep(3000);
-//        TestUtil.click(Locatoionper,"Loaction permission done");
-//        driver.navigate().back();
-//        TestUtil.click(Cashlessgrg,"Cashless garage clicked");
-//        Thread.sleep(4000);
-////        TestUtil.click(Location,"Loaction permission done");
-////        Thread.sleep(3000);
-//        TestUtil.getScreenShot();
-//        TestUtil.sendKeys(City,"Pune","City entered");
-//        Thread.sleep(3000);
-//        TestUtil.getScreenShot();
-//        TestUtil.sendKeys(Garage,"KANPUR CAR CARE CENTER","Garage Name entered");
-//        TestUtil.getScreenShot();
-//        TestUtil.click(Mobile,"Mobile clicked");
-//        Thread.sleep(3000);
-//        TestUtil.getScreenShot();
+    public void CashlessHospital() throws InterruptedException {
+        TestUtil.click(Insurance, "Insurance clicked");
+        Thread.sleep(4000);
+        ViewMoreLoop();
+        TestUtil.click(PolicyPDP, "Policy clicked");
+        TestUtil.click(KnowPolicy, "Know your policy clicked");
+        Thread.sleep(2000);
+//         TestUtil.click(back, "Cross clicked");
+        TestUtil.scrolltoElement("new UiSelector().text(\"View Cashless Hospitals\")");
+        Thread.sleep(3000);
+        TestUtil.click(closeButton, "Close add");
+        TestUtil.getScreenShot();
+        TestUtil.click(CashlesHospital, "Cashless Hospital clicked");
+        Thread.sleep(2000);
+        TestUtil.click(Locatoionper, "Loaction permission done");
+           driver.navigate().back();
+        TestUtil.click(CashlesHospital, "Cashless Hospital clicked");
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        TestUtil.click(AllInsurer, "All insurer clicked");
+        TestUtil.click(cigna, "Cigna insurer clicked");
+        TestUtil.sendKeys(pincode, "411028", "Pincode entered");
+        Thread.sleep(3000);
+        TestUtil.waitUntilVisibilityOfElement(Viewall);
+        TestUtil.getScreenShot();
+        TestUtil.click(Viewall, "View all clicked");
+        Thread.sleep(3000);
+        TestUtil.click(Gandhi, "Gandhi Hospital clicked");
+        Thread.sleep(2000);
+        TestUtil.getScreenShot();
+        TestUtil.click(share, "Share button clicked");
+        Thread.sleep(3000);
+        TestUtil.getScreenShot();
 
-//    }
-    public void ViewMoreLoop(){
-        while(true){
-            try{
-                TestUtil.click(Suraj,"Suraj policy clicked");
+    }
+
+    public void ViewMoreLoop() {
+        while (true) {
+            try {
+                TestUtil.click(Suraj, "Suraj policy clicked");
                 Thread.sleep(3000);
                 TestUtil.getScreenShot();
                 LogUtils.info("Heath policy found");
                 break;
-            }catch (TimeoutException | InterruptedException e){
+            } catch (TimeoutException | InterruptedException e) {
                 LogUtils.info("Suraj health policy not found");
                 try {
                     LogUtils.info("Retrying clicking View more cta");
                     try {
                         TestUtil.click(ViewMore, "View more clicked");
-                    }catch (TimeoutException w){
+                    } catch (TimeoutException w) {
                         TestUtil.click(ViewMore1, "View more1 clicked");
                     }
-                  TestUtil util = new TestUtil();
+                    TestUtil util = new TestUtil();
                     util.scrolltoElement("new UiSelector().description(\"Rajesh, Not covered\")");
 
                     Thread.sleep(1000); // small wait

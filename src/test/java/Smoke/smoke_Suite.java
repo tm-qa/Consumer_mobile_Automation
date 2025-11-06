@@ -37,7 +37,6 @@ public class smoke_Suite extends TestBase {
     public void start(Method method) throws IOException, InterruptedException {
         TestBase.MethodName = method.getName();
         TurtlemintProApp();
-//        startGlobalPopupWatcher();
         lg = new Login();
         user = new NewUser_page();
         Ap = new AyushPay();
@@ -121,11 +120,11 @@ public class smoke_Suite extends TestBase {
         cg.GarageSearch();
     }
 
-//    @Test(priority = 9,description = "Check Cashless Garage")
-//    public void cashless_Hospital() throws InterruptedException {
-////        user.profileCreation1("appium","appium","10-10-1994");
-//        cg.CashlessHospital();
-//    }
+    @Test(priority = 9,description = "Check Cashless Hospital")
+    public void cashless_Hospital() throws InterruptedException {
+//        user.profileCreation1("appium","appium","10-10-1994");
+        cg.CashlessHospital();
+    }
     /// Stage methods
 
     @Test(priority = 8, description = "Install link")
@@ -133,9 +132,10 @@ public class smoke_Suite extends TestBase {
         Thread.sleep(2000);
         TestUtil.getScreenShot();
         user.profileCreation("appium", "appium", "10-10-1994");
-        driver.navigate().back();
-        driver.navigate().back();
-        driver.navigate().back();
+        TestUtil.BackNavigation();
+//        driver.navigate().back();
+//        driver.navigate().back();
+//        driver.navigate().back();
         user.deleteAccount();
         Thread.sleep(5000);
     }

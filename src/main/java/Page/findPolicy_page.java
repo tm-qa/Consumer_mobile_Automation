@@ -24,9 +24,9 @@ public class findPolicy_page extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Insurance\")")
     WebElement Insurance;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Hero Motocorp Super Splendor\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Honda Shine\")")
     WebElement Splender;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"DIGIT GENERAL INSURANCE, Action needed\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"ICICI LOMBARD, Action needed\")")
     WebElement Digit;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"DIGIT GENERAL INSURANCE\")")
     WebElement Digit1;
@@ -174,9 +174,9 @@ public class findPolicy_page extends TestBase {
         TestUtil.click(back, "");
         TestUtil.click(Insurance, "Insurance clicked");
         TestUtil.click(Splender,"Policy clicked");
-        TestUtil.click(Digit,"Digit clicked");
+        TestUtil.click(Digit,"Icici clicked");
 //        TestUtil.click(verifyitsyou, "Click on Verify its You");
-        TestUtil.sendKeys(Pincode, "262310", "Pincode enter");
+        TestUtil.sendKeys(Pincode, "226006", "Pincode enter");
 //        TestUtil.click(Digit1,"Digit clicked");
         TestUtil.click(ViewDetail1, "View Detail clicked");
         driver.navigate().back();
