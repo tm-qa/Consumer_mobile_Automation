@@ -63,7 +63,7 @@ public class Cashless extends TestBase {
     WebElement ViewMore;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"View more\")")
     WebElement ViewMore1;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Suraj (You)\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Suraj (You)\")")
     WebElement Suraj;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(15)")
     WebElement PolicyPDP;
@@ -103,6 +103,7 @@ public class Cashless extends TestBase {
         TestUtil.click(Cashlessgrg, "Cashless garage clicked");
         Thread.sleep(3000);
         TestUtil.click(Locatoionper, "Loaction permission done");
+        Thread.sleep(2000);
         TestUtil.click(back, "Cross clicked");
         Thread.sleep(2000);
         driver.navigate().back();
@@ -136,6 +137,7 @@ public class Cashless extends TestBase {
         TestUtil.click(CashlesHospital, "Cashless Hospital clicked");
         Thread.sleep(2000);
         TestUtil.click(Locatoionper, "Loaction permission done");
+        Thread.sleep(2000);
            driver.navigate().back();
         TestUtil.click(CashlesHospital, "Cashless Hospital clicked");
         Thread.sleep(2000);
@@ -158,6 +160,7 @@ public class Cashless extends TestBase {
     }
 
     public void ViewMoreLoop() {
+        //Update this logic on proper way as curent logic takes time
         while (true) {
             try {
                 TestUtil.click(Suraj, "Suraj policy clicked");
@@ -171,13 +174,15 @@ public class Cashless extends TestBase {
                     LogUtils.info("Retrying clicking View more cta");
                     try {
                         TestUtil.click(ViewMore, "View more clicked");
+                        Thread.sleep(2000);
                     } catch (TimeoutException w) {
                         TestUtil.click(ViewMore1, "View more1 clicked");
                     }
                     TestUtil util = new TestUtil();
                     util.scrolltoElement("new UiSelector().description(\"Rajesh, Not covered\")");
+                    //new UiSelector().className("android.view.ViewGroup").instance(30)
 
-                    Thread.sleep(1000); // small wait
+                    Thread.sleep(3000); // small wait
                 } catch (Exception ex) {
                     System.out.println("View More button not found, stopping.");
                     break;

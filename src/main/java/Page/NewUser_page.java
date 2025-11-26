@@ -52,7 +52,12 @@ public class NewUser_page extends TestBase {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
     WebElement closeButton;
-
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(1)")
+    WebElement closeButton1;
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(9)")
+    WebElement closeButton2;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Invite your family\")")
+    WebElement Invite;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Health\")")
     WebElement Health;
 
@@ -226,6 +231,13 @@ public class NewUser_page extends TestBase {
         TestUtil.sendKeys(dob, DOB, "DOB entered");
         Thread.sleep(1000);
         TestUtil.click(cont, "Continue clicked");
+        try{
+        if (Skip.isDisplayed()){
+            TestUtil.click(Skip, "Skip clicked");
+        }
+        }catch (NoSuchElementException e){
+            LogUtils.info("Skip not displayed");
+        }
         if (TestBase.env.equals("stage")) {
             Thread.sleep(2000);
             TestUtil.getScreenShot();
@@ -339,6 +351,13 @@ public class NewUser_page extends TestBase {
         TestUtil.sendKeys(dob, DOB, "DOB entered");
         Thread.sleep(1000);
         TestUtil.click(cont, "Continue clicked");
+        try{
+            if (Skip.isDisplayed()){
+                TestUtil.click(Skip, "Skip clicked");
+            }
+        }catch (NoSuchElementException e){
+            LogUtils.info("Skip not displayed");
+        }
     }
 
     public void prof() {
@@ -383,11 +402,13 @@ public class NewUser_page extends TestBase {
     }
 
     public void byname() throws InterruptedException {
-        TestUtil.click(closeButton, "Close add");
+//        TestUtil.click(closeButton, "Close add");
         Thread.sleep(2000);
         driver.navigate().back();
-//        TestUtil.click(Skip, "Skip clicked");
+        TestUtil.click(Skip, "Skip clicked");
 //        Thread.sleep(3000);
+        TestUtil.click(closeButton1, "Close add");
+        TestUtil.click(Insurance, "Insurance clicked");
         TestUtil.assertText(HealthMember, "Lovedeep (You)");
         TestUtil.assertText(HEalthNominee, "Manpreet");
         // TestUtil.assertText(AddNow_vehicle,"Add now");
@@ -419,6 +440,9 @@ public class NewUser_page extends TestBase {
         }
         Thread.sleep(3000);
         TestUtil.click(Vehiclename2, "Bajaj insurance clicked");
+        Thread.sleep(6000);
+        Invite.isDisplayed();
+        TestUtil.click(closeButton2, "Close add");
         TestUtil.assertText(AshokMishra, "LOVEDEEP SINGH");
 //        TestUtil.assertText(Comprehensivecover, "Comprehensive cover");
         TestUtil.assertText(ThirdParty, "Third Party only cover");
