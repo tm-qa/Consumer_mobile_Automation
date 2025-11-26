@@ -8,6 +8,7 @@ import org.testng.annotations.*;
 import util.iTestListener;
 import utils.TestUtil;
 import org.openqa.selenium.interactions.Actions;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -30,7 +31,7 @@ public class smoke_Suite extends TestBase {
     Cashless cg;
 
     PolicyFetch pf;
-
+    GPT_Flow gpt;
 
 
     @BeforeMethod
@@ -46,6 +47,7 @@ public class smoke_Suite extends TestBase {
         FP = new findPolicy_page();
         pf = new PolicyFetch();
         cg = new Cashless();
+        gpt = new GPT_Flow();
 
         if (method.getName().equals("InstallLink") ||
                 method.getName().equals("findpolicyMobNoInstalllink") ||
@@ -60,70 +62,79 @@ public class smoke_Suite extends TestBase {
 
     }
 
-    @Test(description = "Login And Logout with 6999912345 number")
+    @Test(description = "Login And Logout with 6999912345 number", groups = "prod")
     public void login_logout_with_699912345() throws InterruptedException {
         user.profileLogout();
     }
-    @Test(priority = 1,description = "Delete Account with 6999912345 number")
+
+    @Test(priority = 1, description = "Delete Account with 6999912345 number")
     public void DeleteAccount() throws InterruptedException {
         user.deleteAccount();
     }
 
-    @Test(priority = 2,description = "Check policy Fetch through FN,LN")
+    @Test(priority = 2, description = "Check policy Fetch through FN,LN")
     public void checkbyFNLN() throws InterruptedException {
         if (TestBase.env.equals("prod")) {
 
             user.profileCreation("lovedeep", "singh", "10-12-1998"); //Not calling claim flow
         } else {
-            user.profileCreation("GAURAV","SINGH","14-07-1995");// calling claim for stage
+            user.profileCreation("GAURAV", "SINGH", "14-07-1995");// calling claim for stage
         }
+        user.deleteAccount();
     }
 
 
     @Test(priority = 3, description = "New Profile with Claim flow")
     public void ProfileCreation() throws InterruptedException {
         //need to click on skip after profile journey
-        user.deleteAccount();
-        user.prof();
-        user.profileCreation("appium","appium","10-10-1994");// Calling claim flow prod  //not calling claim for stage
+
+//        user.prof();
+        user.profileCreation("appium", "appium", "10-10-1994");// Calling claim flow prod  //not calling claim for stage
     }
 
-    @Test(priority = 4,description = "Check AyushPay")
+    @Test(priority = 4, description = "Check AyushPay")
     public void checkAyushpay() throws InterruptedException {
-       Ap.AyushPayCheck();
+        Ap.AyushPayCheck();
     }
 
-    @Test(priority = 5,description = "Check Dashboard")
+    @Test(priority = 5, description = "Check Dashboard")
     public void checkHomepage() throws InterruptedException {
 
-       dp.dashboardCheck();
+        dp.dashboardCheck();
     }
 
-    @Test(priority = 6,description = "Check Family")
+    @Test(priority = 6, description = "Check Family")
     public void family() throws InterruptedException {
         FA.Family();
         Thread.sleep(2000);
-     user.deleteAccount();
-    }
-/// Not applicable for stage as it requires some changes to be done in DB
-    @Test(priority = 7,description = "Check Quote")
-    public void QuoteZoop() throws InterruptedException {
-        //Need to click on skip after profile journey
-          user.profileCreation1("appium","appium","10-10-1994");
-       FP.validRegNo("UP32GP5890");
         user.deleteAccount();
     }
-    @Test(priority = 8,description = "Check Cashless Garage")
+
+    /// Not applicable for stage as it requires some changes to be done in DB
+    @Test(priority = 7, description = "Check Quote")
+    public void QuoteZoop() throws InterruptedException {
+        //Need to click on skip after profile journey
+        user.profileCreation1("appium", "appium", "10-10-1994");
+        FP.validRegNo("UP32GP5890");
+        user.deleteAccount();
+    }
+
+    @Test(priority = 8, description = "Check Cashless Garage")
     public void cashless_garage() throws InterruptedException {
         //Need to click on skip after profile journey
-        user.profileCreation1("appium","appium","10-10-1994");
+        user.profileCreation1("appium", "appium", "10-10-1994");
         cg.GarageSearch();
     }
 
-    @Test(priority = 9,description = "Check Cashless Hospital")
+    @Test(priority = 9, description = "Check Cashless Hospital")
     public void cashless_Hospital() throws InterruptedException {
 //        user.profileCreation1("appium","appium","10-10-1994");
         cg.CashlessHospital();
+    }
+
+    @Test(priority = 10, description = "Check Insurance GPT Flow")
+    public void Insurnace_GPT() throws InterruptedException {
+        gpt.Insurance_Flow();
     }
     /// Stage methods
 
@@ -133,17 +144,12 @@ public class smoke_Suite extends TestBase {
         TestUtil.getScreenShot();
         user.profileCreation("appium", "appium", "10-10-1994");
         TestUtil.BackNavigation();
-//        driver.navigate().back();
-//        driver.navigate().back();
-//        driver.navigate().back();
         user.deleteAccount();
         Thread.sleep(5000);
     }
 
     @Test(priority = 9, description = "Find a policy Alternate number")
     public void findpolicyalternateNo() throws InterruptedException {
-//        user.deleteAccount();
-//        lg.login();
         user.profileCreation1("dummy", "demo", "10-10-1994");
         pf.Alternate_no("3299010746");
         user.deleteAccount();
@@ -165,8 +171,6 @@ public class smoke_Suite extends TestBase {
         pf.MobandInstallLink();
         user.deleteAccount();
     }
-
-
     @AfterMethod
     public void close() {
 

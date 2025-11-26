@@ -54,10 +54,18 @@ public class PolicyFetch extends TestBase {
     WebElement Add;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(16)")
     WebElement cartClick;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Pankaj, Total coverage: , ₹50,00,000\")")
+    WebElement Pnkaj;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Know your policy\")")
     WebElement KnowPolicy;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(2)")
     WebElement Share;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Call Expert\")")
+    WebElement expert;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"See your other policies\")")
+    WebElement otherPolici;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"PANKAJ MAHOR\").instance(0)")
+    WebElement Name;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Skip\")")
     WebElement Skip;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(0)")
@@ -105,6 +113,8 @@ public class PolicyFetch extends TestBase {
         TestUtil.getScreenShot();
         TestUtil.click(Add, "Add clicked");
         Thread.sleep(2000);
+        driver.navigate().back();
+        TestUtil.click(Pnkaj, "Pankaj Policy cart clicked");
         TestUtil.getScreenShot();
         TestUtil.click(cartClick, "Policy cart clicked");
         TestUtil.click(KnowPolicy, "Know Your Policy clicked");
@@ -114,7 +124,11 @@ public class PolicyFetch extends TestBase {
         TestUtil.click(Share, "Share clicked");
         Thread.sleep(2000);
         TestUtil.getScreenShot();
-        driver.navigate().back();
+        TestUtil.click(Share, "");
+        TestUtil.assertText(expert,"Call Expert");
+        TestUtil.assertText(otherPolici,"See your other policies");
+        TestUtil.assertText(Name,"PANKAJ MAHOR");
+        TestUtil.BackNavigation();
 
     }
 
