@@ -64,7 +64,8 @@ public class GPT_Flow {
         Thread.sleep(5000);
         TestUtil.assertText(PolicyNumber, "OG-26-1904-1805-00087907");
         TestUtil.getScreenShot();
-
+        /// testing
+         TestUtil.click(closeButton, "Close GPT");
 
     }
 }
