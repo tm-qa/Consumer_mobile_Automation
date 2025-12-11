@@ -7,8 +7,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.xalan.xsltc.dom.AdaptiveResultTreeImpl;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import utils.LogUtils;
-import utils.TestUtil;
+import utils.*;
+import utils.*;
 
 public class PolicyFetch extends TestBase {
     Login lg = new Login();
@@ -128,7 +128,7 @@ public class PolicyFetch extends TestBase {
         TestUtil.assertText(expert,"Call Expert");
         TestUtil.assertText(otherPolici,"See your other policies");
         TestUtil.assertText(Name,"PANKAJ MAHOR");
-        TestUtil.BackNavigation();
+//        TestUtil.BackNavigation();
 
     }
 

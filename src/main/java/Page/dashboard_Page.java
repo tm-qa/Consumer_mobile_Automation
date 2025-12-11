@@ -108,5 +108,6 @@ public class dashboard_Page extends TestBase {
         TestUtil.assertText(Organiseallyourfamilypoliciesinoneplace, "Organise all your family policies in one place");
         TestUtil.assertText(ViewFamily, "View Family");
         TestUtil.getScreenShot();
+
     }
 }

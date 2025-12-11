@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class Account_Test extends TestBase {
@@ -28,7 +29,7 @@ public class Account_Test extends TestBase {
     }
 
     @Test
-    public void consumerLogin_Test() throws InterruptedException {
+    public void consumerLogin_Test() throws InterruptedException, IOException {
         lg.login();
         lg.profileSetting();
         System.out.println("Life flow completed");
