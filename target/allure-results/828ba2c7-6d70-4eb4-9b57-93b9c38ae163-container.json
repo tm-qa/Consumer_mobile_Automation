@@ -1,0 +1,11 @@
+{
+  "uuid": "828ba2c7-6d70-4eb4-9b57-93b9c38ae163",
+  "name": "Consumer_mobile_Automation",
+  "children": [
+    "58e5fc68-99f8-4d90-b5c6-ef1051f744bf"
+  ],
+  "befores": [],
+  "afters": [],
+  "start": 1765256416365,
+  "stop": 1765256555296
+}

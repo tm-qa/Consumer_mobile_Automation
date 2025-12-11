@@ -116,7 +116,16 @@ public class smoke_Suite extends TestBase {
         //Need to click on skip after profile journey
         user.profileCreation1("appium", "appium", "10-10-1994");
         FP.validRegNo("UP32GP5890");
+
         user.deleteAccount();
+
+//        user.deleteAccount(); ///disabled to check other flows as Chat with doc requires policy to be present
+    }
+    @Test(priority = 8, description = "Check Chat with doc")
+    public void ChatWithDoc() throws InterruptedException {
+        gpt.Chat_With_Doc();
+     user.deleteAccount();
+
     }
 
     @Test(priority = 8, description = "Check Cashless Garage")
@@ -176,9 +185,9 @@ public class smoke_Suite extends TestBase {
 
         driver.quit();
     }
-    @AfterClass
-    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
-        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
-        a.allureToSlack("Consumer App Smoke Suite Report");
-    }
+//    @AfterClass
+//    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
+//        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
+//        a.allureToSlack("Consumer App Smoke Suite Report");
+//    }
 }

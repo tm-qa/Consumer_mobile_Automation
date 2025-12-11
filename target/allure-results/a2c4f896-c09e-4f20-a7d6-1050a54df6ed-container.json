@@ -1,0 +1,1 @@
+{"uuid":"a2c4f896-c09e-4f20-a7d6-1050a54df6ed","name":"Smoke.smoke_Suite","children":["eef375b7-4109-4828-99df-0f5e4deaaff6"],"befores":[],"afters":[{"name":"Screenshot","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1765345593747,"stop":1765345624312}],"start":1765345535204,"stop":1765345624315}

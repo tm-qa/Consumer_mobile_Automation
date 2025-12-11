@@ -1,0 +1,70 @@
+{
+  "uuid": "fad50783-7dc9-4995-9f4e-27f885ca9044",
+  "historyId": "6d1a088639aa550668107c9438534393",
+  "fullName": "Smoke.smoke_Suite.checkHomepage",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "checkHomepage"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "10582@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Dashboard",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.21.41",
+      "source": "4330e04c-d0a3-4bac-825d-8de641badd22-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.22.00",
+      "source": "57faced7-e067-4407-88f6-49b3f2cf4ac3-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765194696649,
+  "stop": 1765194720707
+}

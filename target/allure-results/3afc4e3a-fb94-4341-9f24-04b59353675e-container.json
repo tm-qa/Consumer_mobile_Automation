@@ -1,0 +1,31 @@
+{
+  "uuid": "3afc4e3a-fb94-4341-9f24-04b59353675e",
+  "name": "Smoke.smoke_Suite",
+  "children": [
+    "5c9f06f4-2101-4363-835f-391edc50d3e8",
+    "c83fc1df-9a47-4c7f-bd60-1219a76bdc58"
+  ],
+  "befores": [],
+  "afters": [
+    {
+      "name": "Screenshot",
+      "status": "broken",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "timeout",
+        "trace": "java.net.SocketTimeoutException: timeout\n\tat okhttp3.internal.http2.Http2Stream$StreamTimeout.newTimeoutException(Http2Stream.kt:675)\n\tat okhttp3.internal.http2.Http2Stream$StreamTimeout.exitAndThrowIfTimedOut(Http2Stream.kt:684)\n\tat okhttp3.internal.http2.Http2Stream$FramingSink.emitFrame(Http2Stream.kt:554)\n\tat okhttp3.internal.http2.Http2Stream$FramingSink.write(Http2Stream.kt:532)\n\tat okio.ForwardingSink.write(ForwardingSink.kt:29)\n\tat okhttp3.internal.connection.Exchange$RequestBodySink.write(Exchange.kt:223)\n\tat okio.RealBufferedSink.emitCompleteSegments(RealBufferedSink.kt:256)\n\tat okio.RealBufferedSink.write(RealBufferedSink.kt:186)\n\tat okhttp3.RequestBody$Companion$toRequestBody$2.writeTo(RequestBody.kt:152)\n\tat okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.kt:62)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)\n\tat okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:34)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)\n\tat okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)\n\tat okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)\n\tat okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)\n\tat com.slack.api.util.http.UserAgentInterceptor.intercept(UserAgentInterceptor.java:43)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)\n\tat okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)\n\tat okhttp3.internal.connection.RealCall.execute(RealCall.kt:154)\n\tat com.slack.api.methods.impl.FilesUploadV2Helper.uploadFile(FilesUploadV2Helper.java:57)\n\tat com.slack.api.methods.impl.MethodsClientImpl.filesUploadV2(MethodsClientImpl.java:2250)\n\tat Page.AllureServeAndSlackScreenshot.uploadToSlack(AllureServeAndSlackScreenshot.java:102)\n\tat Page.AllureServeAndSlackScreenshot.allureToSlack(AllureServeAndSlackScreenshot.java:75)\n\tat Smoke.smoke_Suite.Screenshot(smoke_Suite.java:188)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)\n\tat org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)\n\tat org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)\n\tat org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)\n\tat org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)\n\tat org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)\n\tat org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat org.testng.TestRunner.privateRun(TestRunner.java:848)\n\tat org.testng.TestRunner.run(TestRunner.java:621)\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:443)\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:336)\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1200)\n\tat org.testng.TestNG.runSuites(TestNG.java:1114)\n\tat org.testng.TestNG.run(TestNG.java:1082)\n\tat com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)\n\tat com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)\n\tSuppressed: okhttp3.internal.http2.StreamResetException: stream was reset: CANCEL\n\t\tat okhttp3.internal.http2.Http2Stream.takeHeaders(Http2Stream.kt:148)\n\t\tat okhttp3.internal.http2.Http2ExchangeCodec.readResponseHeaders(Http2ExchangeCodec.kt:97)\n\t\tat okhttp3.internal.connection.Exchange.readResponseHeaders(Exchange.kt:110)\n\t\tat okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.kt:93)\n\t\t... 44 more\n"
+      },
+      "stage": "finished",
+      "description": "",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1765260877031,
+      "stop": 1765260906060
+    }
+  ],
+  "start": 1765260665941,
+  "stop": 1765260911085
+}

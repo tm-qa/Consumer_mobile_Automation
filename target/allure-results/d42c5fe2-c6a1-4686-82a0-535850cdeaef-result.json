@@ -1,0 +1,82 @@
+{
+  "uuid": "d42c5fe2-c6a1-4686-82a0-535850cdeaef",
+  "historyId": "154d6788e204a423bf9becfcf052c1de",
+  "fullName": "Smoke.smoke_Suite.QuoteZoop",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "QuoteZoop"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "11147@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Quote",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.28.45",
+      "source": "40a01d35-c4e4-46ff-8052-8006ef657826-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.28.49",
+      "source": "45708019-33a4-42c8-8d85-161ad8dcf3e2-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.28.50",
+      "source": "0e85f033-7cff-401c-9fce-7168c98d77f5-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.28.52",
+      "source": "8da03a3f-5e84-4154-852f-b05ceae89799-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.29.00",
+      "source": "17e7ab49-0f1e-4830-b67b-e0f8aabca7fd-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765195076759,
+  "stop": 1765195145357
+}

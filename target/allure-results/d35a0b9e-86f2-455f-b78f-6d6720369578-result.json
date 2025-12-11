@@ -1,0 +1,78 @@
+{
+  "uuid": "d35a0b9e-86f2-455f-b78f-6d6720369578",
+  "historyId": "221cb8147c9d707cad6da72150aff0c2",
+  "fullName": "Smoke.smoke_Suite.cashless_garage",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "cashless_garage"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "16230@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Cashless Garage",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.09.11.50.48",
+      "source": "72ef7ac3-6bcd-4d9d-ba02-d577c541c857-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.50.52",
+      "source": "d713e6a3-741d-497d-b1d1-da0cdb0bc1cf-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.50.53",
+      "source": "5d19860f-100a-4cf9-ad8e-3d5b5f7efe98-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.50.57",
+      "source": "bb40c1fa-8827-4913-95e1-9c49d88d4c66-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765261191169,
+  "stop": 1765261257045
+}

@@ -1,0 +1,78 @@
+{
+  "uuid": "0e7d8e0e-f09d-4990-adb8-be6e6d048a28",
+  "historyId": "4cfb829d085bb0e1f61cb7ee4aaa645b",
+  "fullName": "Smoke.smoke_Suite.Insurnace_GPT",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "Insurnace_GPT"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "13879@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Insurance GPT Flow",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.09.10.28.44",
+      "source": "f32cc113-73b4-4962-a345-43abdd5054d8-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.29.15",
+      "source": "90a49530-941a-4519-8812-022ae01319c3-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.29.46",
+      "source": "5ac6b5ec-306e-4173-985b-0336269b4247-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.29.49",
+      "source": "c2ff1078-5da5-4073-90ca-84137790348b-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765256314909,
+  "stop": 1765256389773
+}

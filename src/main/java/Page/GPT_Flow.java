@@ -46,6 +46,7 @@ public class GPT_Flow {
         TestUtil.getScreenShot();
         TestUtil.sendKeys(TextBox, "What is Hospital cash", "Text box entered");
         TestUtil.click(Send, "Send clicked");
+
         Thread.sleep(5000);
         TestUtil.getScreenShot();
         TestUtil.sendKeys(TextBox, "What is Add ons", "Text box entered");
@@ -54,6 +55,31 @@ public class GPT_Flow {
         TestUtil.getScreenShot();
         TestUtil.click(Attachment, "Attachment clicked");
         TestUtil.click(AttachmentFile, "Attachment file clicked");
+
+        Thread.sleep(40000);
+        TestUtil.getScreenShot();
+        TestUtil.sendKeys(TextBox, "What is Add ons", "Text box entered");
+        TestUtil.click(Send, "Send clicked");
+        Thread.sleep(40000);
+        TestUtil.getScreenShot();
+        TestUtil.click(Attachment, "Attachment clicked");
+        TestUtil.click(AttachmentFile, "Attachment file clicked");
+//        Thread.sleep(8000);
+        TestUtil.click(Send, "Send clicked");
+        Thread.sleep(3000);
+        TestUtil.sendKeys(TextBox, "What is My Policy Number", "Text box entered");
+        TestUtil.click(Send, "Send clicked");
+        Thread.sleep(10000);
+        TestUtil.sendKeys(TextBox, "What is My Policy Number", "Text box entered");
+        TestUtil.click(Send, "Send clicked");
+        Thread.sleep(35000);
+        TestUtil.assertText(PolicyNumber, "OG-26-1904-1805-00087907");
+        TestUtil.getScreenShot();
+
+    }
+
+    public void Chat_With_Doc() throws InterruptedException {
+
         Thread.sleep(2000);
         TestUtil.click(Send, "Send clicked");
         Thread.sleep(3000);

@@ -1,0 +1,24 @@
+{
+  "uuid": "e6fe16c4-2ea1-43da-ae41-303870e7402b",
+  "name": "Smoke.smoke_Suite.close",
+  "children": [
+    "18f3efe3-8d47-4b3c-8df7-09b5077b87d8"
+  ],
+  "description": "",
+  "befores": [],
+  "afters": [
+    {
+      "name": "close",
+      "status": "broken",
+      "stage": "finished",
+      "description": "",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1765256849290,
+      "stop": 1765256849291
+    }
+  ],
+  "start": 1765256849290,
+  "stop": 1765256849291
+}

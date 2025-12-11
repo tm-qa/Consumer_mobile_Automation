@@ -1,0 +1,80 @@
+{
+  "uuid": "8b30dbc1-b9f7-4817-ab8e-f35c6fbb2025",
+  "historyId": "bdc90d8037caa7ec8d865ecd5cc0e4dd",
+  "fullName": "Smoke.smoke_Suite.cashless_Hospital",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "cashless_Hospital"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "14035@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Cashless Hospital",
+  "status": "broken",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "Could not proxy command to the remote server. Original error: socket hang up\nBuild info: version: '4.18.1', revision: 'b1d3319b48'\nSystem info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.1', java.version: '17.0.16'\nDriver info: io.appium.java_client.android.AndroidDriver\nCommand: [bb486640-d7f8-493a-a2f1-44d7a0c6b0aa, findElement {using=-android uiautomator, value=new UiSelector().text(\"Gandhi Hospital\")}]\nCapabilities {appium:app: /Users/surajgarud/Downloads..., appium:appActivity: com.turtlemintconsumerapp.M..., appium:appPackage: com.turtlemintconsumerapp, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: /Users/surajgarud/Downloads..., appActivity: com.turtlemintconsumerapp.M..., appPackage: com.turtlemintconsumerapp, automationName: UiAutomator2, deviceName: Pixel 8 Pro, platformName: ANDROID, platformVersion: 16, udid: emulator-5554}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1344x2992, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 3, appium:platformVersion: 16, appium:statBarHeight: 151, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2841, left: 0, top: 151, width: 1344}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}\nSession ID: bb486640-d7f8-493a-a2f1-44d7a0c6b0aa",
+    "trace": "org.openqa.selenium.WebDriverException: Could not proxy command to the remote server. Original error: socket hang up\nBuild info: version: '4.18.1', revision: 'b1d3319b48'\nSystem info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.1', java.version: '17.0.16'\nDriver info: io.appium.java_client.android.AndroidDriver\nCommand: [bb486640-d7f8-493a-a2f1-44d7a0c6b0aa, findElement {using=-android uiautomator, value=new UiSelector().text(\"Gandhi Hospital\")}]\nCapabilities {appium:app: /Users/surajgarud/Downloads..., appium:appActivity: com.turtlemintconsumerapp.M..., appium:appPackage: com.turtlemintconsumerapp, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: /Users/surajgarud/Downloads..., appActivity: com.turtlemintconsumerapp.M..., appPackage: com.turtlemintconsumerapp, automationName: UiAutomator2, deviceName: Pixel 8 Pro, platformName: ANDROID, platformVersion: 16, udid: emulator-5554}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1344x2992, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 3, appium:platformVersion: 16, appium:statBarHeight: 151, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2841, left: 0, top: 151, width: 1344}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}\nSession ID: bb486640-d7f8-493a-a2f1-44d7a0c6b0aa\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\n\tat org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)\n\tat io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)\n\tat io.appium.java_client.pagefactory.bys.builder.ByChained.lambda$getSearchingFunction$0(ByChained.java:41)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)\n\tat io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:72)\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)\n\tat io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)\n\tat io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)\n\tat io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)\n\tat io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)\n\tat io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)\n\tat io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)\n\tat io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:75)\n\tat io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)\n\tat org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$5QxVSVPY.isDisplayed(Unknown Source)\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)\n\tat utils.TestUtil.click(TestUtil.java:157)\n\tat Page.Cashless.CashlessHospital(Cashless.java:153)\n\tat Smoke.smoke_Suite.cashless_Hospital(smoke_Suite.java:138)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)\n\tat org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)\n\tat org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)\n\tat org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)\n\tat org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)\n\tat org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)\n\tat org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)\n\tat org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat org.testng.TestRunner.privateRun(TestRunner.java:848)\n\tat org.testng.TestRunner.run(TestRunner.java:621)\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:443)\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:336)\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1200)\n\tat org.testng.TestNG.runSuites(TestNG.java:1114)\n\tat org.testng.TestNG.run(TestNG.java:1082)\n\tat com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)\n\tat com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)\n"
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.09.10.35.07",
+      "source": "8aa5a795-a790-4558-a612-7e00f5a44c36-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.35.17",
+      "source": "e41edea2-0880-4574-8573-fe590ce958f7-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.35.26",
+      "source": "0f88b5d8-44ee-4cf1-ab95-95c1c60b4064-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.35.35",
+      "source": "d445aa8f-727c-4783-b08e-e04e02c47f80-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765256647560,
+  "stop": 1765256778801
+}
