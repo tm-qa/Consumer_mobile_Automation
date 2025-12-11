@@ -2,14 +2,15 @@ package Account;
 
 import Base.TestBase;
 import Page.Login;
-import Page.NewUser_page;
-import Page.dashboard_Page;
+import Page.*;
+import Page.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import util.iTestListener;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 @Listeners(iTestListener.class)
@@ -25,7 +26,7 @@ public class profile_Creation extends TestBase {
 
 
     @BeforeMethod
-    public void start() throws MalformedURLException, InterruptedException {
+    public void start() throws IOException, InterruptedException {
         TurtlemintProApp();
         lg = new Login();
         user = new NewUser_page();

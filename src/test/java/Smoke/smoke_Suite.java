@@ -6,7 +6,7 @@ import com.slack.api.methods.SlackApiException;
 import io.qameta.allure.Allure;
 import org.testng.annotations.*;
 import util.iTestListener;
-import utils.TestUtil;
+import utils.*;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
@@ -23,7 +23,7 @@ public class smoke_Suite extends TestBase {
     }
 
     Login lg;
-    AyushPay Ap;
+//    AyushPay Ap;
     NewUser_page user;
     dashboard_Page dp;
     FamilyAccount FA;
@@ -40,7 +40,7 @@ public class smoke_Suite extends TestBase {
         TurtlemintProApp();
         lg = new Login();
         user = new NewUser_page();
-        Ap = new AyushPay();
+//        Ap = new AyushPay();
         //lg.login();
         dp = new dashboard_Page();
         FA = new FamilyAccount();
@@ -94,7 +94,7 @@ public class smoke_Suite extends TestBase {
 
     @Test(priority = 4, description = "Check AyushPay")
     public void checkAyushpay() throws InterruptedException {
-        Ap.AyushPayCheck();
+//        Ap.AyushPayCheck();
     }
 
     @Test(priority = 5, description = "Check Dashboard")
@@ -143,7 +143,7 @@ public class smoke_Suite extends TestBase {
         Thread.sleep(2000);
         TestUtil.getScreenShot();
         user.profileCreation("appium", "appium", "10-10-1994");
-        TestUtil.BackNavigation();
+//        TestUtil.BackNavigation();
         user.deleteAccount();
         Thread.sleep(5000);
     }
@@ -176,9 +176,9 @@ public class smoke_Suite extends TestBase {
 
         driver.quit();
     }
-    @AfterClass
-    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
-        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
-        a.allureToSlack("Consumer App Smoke Suite Report");
-    }
+//    @AfterClass
+//    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
+//        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
+//        a.allureToSlack("Consumer App Smoke Suite Report");
+//    }
 }

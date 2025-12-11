@@ -2,14 +2,15 @@ package Home_Test;
 
 import Base.TestBase;
 import Page.Login;
-import Page.NewUser_page;
-import Page.dashboard_Page;
+import Page.*;
+import Page.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.TestUtil;
+import utils.*;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class dashBoard extends TestBase {
@@ -26,7 +27,7 @@ public class dashBoard extends TestBase {
 
 
     @BeforeMethod
-    public void start() throws MalformedURLException, InterruptedException {
+    public void start() throws IOException, InterruptedException {
         TurtlemintProApp();
         lg = new Login();
         dash = new dashboard_Page();
