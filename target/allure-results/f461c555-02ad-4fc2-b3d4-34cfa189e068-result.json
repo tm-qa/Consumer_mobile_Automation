@@ -1,0 +1,66 @@
+{
+  "uuid": "f461c555-02ad-4fc2-b3d4-34cfa189e068",
+  "historyId": "3572ac279ed4d10447a1437a9ce5b4b1",
+  "fullName": "Smoke.smoke_Suite.login_logout_with_699912345",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "login_logout_with_699912345"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "10582@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Login And Logout with 6999912345 number",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.13.09",
+      "source": "fc96ff0a-f418-40eb-92f5-dd19d04bd9c0-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765194179933,
+  "stop": 1765194189144
+}

@@ -1,0 +1,66 @@
+{
+  "uuid": "0742bb4d-9e52-455a-9918-01cb59daf55c",
+  "historyId": "95294a299842ed491912e9d5d3eef0c1",
+  "fullName": "Smoke.smoke_Suite.DeleteAccount",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "DeleteAccount"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "10582@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Delete Account with 6999912345 number",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.14.22",
+      "source": "e323c045-5cd7-49b9-a652-0d3dc956c019-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765194221876,
+  "stop": 1765194262073
+}

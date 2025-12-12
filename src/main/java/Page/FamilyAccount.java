@@ -26,6 +26,7 @@ public class FamilyAccount extends TestBase {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Get started\")")
     WebElement getStarted;
 
+
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Father\")")
     WebElement Father;
 

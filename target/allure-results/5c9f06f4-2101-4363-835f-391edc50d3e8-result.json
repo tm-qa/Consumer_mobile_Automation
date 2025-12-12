@@ -1,0 +1,74 @@
+{
+  "uuid": "5c9f06f4-2101-4363-835f-391edc50d3e8",
+  "historyId": "3ff61cdc767bf581be6097f025b6999b",
+  "fullName": "Smoke.smoke_Suite.ChatWithDoc",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "ChatWithDoc"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "16000@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Chat with doc",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.09.11.41.45",
+      "source": "1d232c60-95ea-4a4d-8a6b-a74b1eb15faf-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.43.43",
+      "source": "7e9f9914-697b-4226-942b-012b1f0b23dd-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.44.36",
+      "source": "8298ad76-66d5-47ff-96ab-2edbd949283f-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765260696082,
+  "stop": 1765260876448
+}

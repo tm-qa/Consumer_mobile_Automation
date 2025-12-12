@@ -1,0 +1,110 @@
+{
+  "uuid": "58518b8e-2092-4235-91df-34ac55dc8877",
+  "historyId": "304fae0d25ccdd700e0adcde207284c1",
+  "fullName": "Smoke.smoke_Suite.checkbyFNLN",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "checkbyFNLN"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "10582@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check policy Fetch through FN,LN",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.16.04",
+      "source": "10dda1f4-8858-4c08-b76f-f3f7ba6313bf-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.16.10",
+      "source": "ca5216e5-587e-4cfe-95ff-ee64696ff84f-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.16.29",
+      "source": "675b8fa1-abd7-4212-8986-23c91e41d10d-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.16.36",
+      "source": "060cf7b3-7ded-4062-b3e1-d82176205d8e-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.16.46",
+      "source": "f546de11-1834-4224-9f1c-4c828c07672c-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.17.05",
+      "source": "378d54be-fbc9-4387-a17b-0a49ba0ddd0f-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.17.12",
+      "source": "ddabdef5-d3a2-4704-bfb0-8ef49e1de2b2-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.17.13",
+      "source": "da072424-f9e9-463b-94ea-e4b201804788-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.17.16",
+      "source": "df813b7f-a1ff-4edf-8d58-028f671e0c3d-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.17.22",
+      "source": "49084ece-85c8-4c16-89dd-7be5b745ce21-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.17.28",
+      "source": "378df474-bb82-4710-a12f-2e5f399fa33f-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.18.18",
+      "source": "5d1a2354-3637-4ece-9223-39b07bdcf6b8-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765194292830,
+  "stop": 1765194498449
+}

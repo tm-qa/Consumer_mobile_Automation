@@ -1,0 +1,94 @@
+{
+  "uuid": "59293830-0bc2-4dc4-86a8-5ba6179e59fc",
+  "historyId": "5fc59f239623329338dab0bb06af51b9",
+  "fullName": "Smoke.smoke_Suite.family",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "family"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "10582@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Family",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.22.40",
+      "source": "99cf492a-df14-4511-9269-70456683a871-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.22.41",
+      "source": "938199f5-8963-42c5-907e-659d00f4d6d0-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.22.45",
+      "source": "aa52af55-6369-42a9-8f0d-38d9541d7e6b-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.22.48",
+      "source": "b295c467-4351-4951-bd29-ca95cdd6d9e7-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.22.50",
+      "source": "a22d0c0c-efaa-4912-afd5-9f558990fcc7-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.22.56",
+      "source": "d28a30d9-b1e3-41de-b514-8d40e4280fe7-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.23.02",
+      "source": "bf82c600-e066-4127-b600-f15610e50ae8-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.24.00",
+      "source": "d156e43c-6c67-4f5b-93db-b866ed3ec4ff-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765194753502,
+  "stop": 1765194840109
+}

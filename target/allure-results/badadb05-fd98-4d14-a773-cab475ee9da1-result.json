@@ -1,0 +1,86 @@
+{
+  "uuid": "badadb05-fd98-4d14-a773-cab475ee9da1",
+  "historyId": "e8b4ee14598d91f1c0f7da348a50028",
+  "fullName": "Smoke.smoke_Suite.ProfileCreation",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "ProfileCreation"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "14665@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "New Profile with Claim flow",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.09.10.47.19",
+      "source": "9bb6f15e-3595-492f-8cac-e8da316096a5-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.47.42",
+      "source": "90aef372-f1b0-491b-ad2b-e615b1d3eb61-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.47.46",
+      "source": "4377d09f-fb63-4a80-a3b0-e0caac3a395d-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.47.51",
+      "source": "f224045d-9baf-4eba-b30b-9075dfeadb74-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.47.54",
+      "source": "1b66e67c-98fc-4cda-94d2-c5fa92a059cb-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.10.48.00",
+      "source": "2ff232ca-4f55-4f96-ae8c-6cc217252b6f-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765257416269,
+  "stop": 1765257480362
+}

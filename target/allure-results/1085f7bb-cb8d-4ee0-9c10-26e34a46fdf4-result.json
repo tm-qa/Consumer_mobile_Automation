@@ -1,0 +1,82 @@
+{
+  "uuid": "1085f7bb-cb8d-4ee0-9c10-26e34a46fdf4",
+  "historyId": "bdc90d8037caa7ec8d865ecd5cc0e4dd",
+  "fullName": "Smoke.smoke_Suite.cashless_Hospital",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "cashless_Hospital"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "15070@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check Cashless Hospital",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.09.11.05.28",
+      "source": "77c2b60c-e222-40f3-b659-73d8347ca6f6-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.05.36",
+      "source": "ec89f26d-8bbc-4b56-8270-d60b0a270951-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.05.45",
+      "source": "a577c0ff-a5b7-44e6-9022-f7fda8f32d80-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.05.55",
+      "source": "5c26d50e-5bd1-45e7-8cad-12a26388d9ef-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.09.11.05.59",
+      "source": "5f8b489c-49d3-4000-a1dd-0a3da7de456f-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765258480766,
+  "stop": 1765258559381
+}

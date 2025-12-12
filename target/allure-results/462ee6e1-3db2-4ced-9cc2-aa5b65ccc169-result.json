@@ -1,0 +1,74 @@
+{
+  "uuid": "462ee6e1-3db2-4ced-9cc2-aa5b65ccc169",
+  "historyId": "c66ad8bee98621b5b3a7f708f2abb399",
+  "fullName": "Smoke.smoke_Suite.checkAyushpay",
+  "labels": [
+    {
+      "name": "package",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testClass",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "testMethod",
+      "value": "checkAyushpay"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "Consumer_mobile_Automation"
+    },
+    {
+      "name": "subSuite",
+      "value": "Smoke.smoke_Suite"
+    },
+    {
+      "name": "host",
+      "value": "Admins-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "10582@Admins-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Check AyushPay",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [
+    {
+      "name": "Screenshot 2025.12.08.17.20.30",
+      "source": "592df7f5-e614-41ed-add5-32813834f577-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.20.44",
+      "source": "81202e7c-de4a-45d7-b518-8e7d5f1a504c-attachment"
+    },
+    {
+      "name": "Screenshot 2025.12.08.17.20.55",
+      "source": "02d34517-9f24-4149-a1fe-ffaaba6b59ef-attachment"
+    }
+  ],
+  "parameters": [],
+  "start": 1765194628043,
+  "stop": 1765194655487
+}

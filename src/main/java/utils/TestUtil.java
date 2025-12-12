@@ -7,6 +7,7 @@ import io.qameta.allure.Allure;
 import junit.framework.Assert;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,10 +23,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 
 public class TestUtil extends TestBase {
@@ -78,6 +76,7 @@ public class TestUtil extends TestBase {
                 +digit1 + digit2 + digit3 + digit4);
         System.out.println(RegNo + "IN test UTIL");
     }
+
 
     public static void getLatestOtpFromLogs(String phoneNumber, String podName, String namespace) throws IOException, InterruptedException {
 //        String update = String.format("aws eks --region ap-south-1 update-kubeconfig --name feature --profile consumer-eks-stage-746564851485");
@@ -139,9 +138,17 @@ public class TestUtil extends TestBase {
         Digi4 = laOtp[3];
     }
 
-    public static void GetOtpFromUser(){
+    public static void GetOtpFromUser() {
         /// It will open one dialog box to get input from user
-        String otp = JOptionPane.showInputDialog("Enter OTP received on your phone:");
+        JTextField field = new JTextField();
+
+        JOptionPane.showMessageDialog(
+                null,
+                field,
+                "Enter OTP",
+                JOptionPane.PLAIN_MESSAGE
+        );
+        String otp = field.getText().trim();
         String[] laOtp = otp.split("");
         // Split OTP into digits
         Digi1 = laOtp[0];
@@ -167,6 +174,22 @@ public class TestUtil extends TestBase {
         Assert.assertEquals(expected.getText(), actual);
 
         LogUtils.info(actual);
+    }
+
+    public static void BackNavigation() throws InterruptedException {
+        while (true) {
+            try {
+                WebElement account = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Family Account\")"));
+                if (account.isDisplayed()) {
+                    LogUtils.info("✅ Account screen visible");
+                    break;
+                }
+            } catch (NoSuchElementException e) {
+                LogUtils.info("Navigating back...");
+                driver.navigate().back();
+                Thread.sleep(3000); // small wait to let UI load
+            }
+        }
     }
 
     public static void reClick(WebElement element, String msg) {
@@ -224,6 +247,16 @@ public class TestUtil extends TestBase {
 
         driver.perform(Collections.singletonList(swipe));
     }
+    public static boolean isVisible(WebElement element) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
 
     public void scrollToElementAndClick(By locator, String direction, int maxSwipes) throws InterruptedException {
@@ -270,7 +303,7 @@ public class TestUtil extends TestBase {
     }
 
     public static void waitUntilVisibilityOfElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

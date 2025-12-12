@@ -1,0 +1,13 @@
+Page/hiddenPolicies_Page.class
+Page/dashboard_Page.class
+Page/Login.class
+Page/upload_file.class
+utils/LogUtils.class
+Page/NewUser_page.class
+Page/findPolicy_page.class
+Page/fastTag_page.class
+Base/TestBase.class
+utils/TestUtil.class
+Page/FamilyAccount.class
+Page/connectExpert_Page.class
+Page/AyushPay.class
