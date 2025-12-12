@@ -116,67 +116,66 @@ public class smoke_Suite extends TestBase {
         //Need to click on skip after profile journey
         user.profileCreation1("appium", "appium", "10-10-1994");
         FP.validRegNo("UP32GP5890");
-
+//        user.deleteAccount(); ///disabled to check other flows as Chat with doc requires policy to be present
     }
     @Test(priority = 8, description = "Check Chat with doc")
     public void ChatWithDoc() throws InterruptedException {
         gpt.Chat_With_Doc();
-
-         user.deleteAccount();
+     user.deleteAccount();
     }
 
-    @Test(priority = 8, description = "Check Cashless Garage")
+    @Test(priority = 9, description = "Check Cashless Garage")
     public void cashless_garage() throws InterruptedException {
         //Need to click on skip after profile journey
         user.profileCreation1("appium", "appium", "10-10-1994");
         cg.GarageSearch();
     }
-
-    @Test(priority = 9, description = "Check Cashless Hospital")
+//
+    @Test(priority = 10, description = "Check Cashless Hospital")
     public void cashless_Hospital() throws InterruptedException {
 //        user.profileCreation1("appium","appium","10-10-1994");
         cg.CashlessHospital();
     }
 
-    @Test(priority = 10, description = "Check Insurance GPT Flow")
+    @Test(priority = 11, description = "Check Insurance GPT Flow")
     public void Insurnace_GPT() throws InterruptedException {
         gpt.Insurance_Flow();
     }
     /// Stage methods
 
-    @Test(priority = 8, description = "Install link")
-    public void InstallLink() throws InterruptedException {
-        Thread.sleep(2000);
-        TestUtil.getScreenShot();
-        user.profileCreation("appium", "appium", "10-10-1994");
-        TestUtil.BackNavigation();
-        user.deleteAccount();
-        Thread.sleep(5000);
-    }
-
-    @Test(priority = 9, description = "Find a policy Alternate number")
-    public void findpolicyalternateNo() throws InterruptedException {
-        user.profileCreation1("dummy", "demo", "10-10-1994");
-        pf.Alternate_no("3299010746");
-        user.deleteAccount();
-    }
-
-    @Test(priority = 10, description = "Find a policy by Mobile number")
-    public void findpolicyMobNo() throws InterruptedException {
-        pf.MobileNo();
-        user.deleteAccount();
-    }
-
-    @Test(priority = 11, description = "Find a policy by Mobile number and Install link")
-    public void findpolicyMobNoInstalllink() throws InterruptedException {
-        Thread.sleep(4000);
-        TestUtil.getScreenShot();
-        user.profileCreation1("dummy", "demo", "10-10-1994");
-        Thread.sleep(4000);
-        driver.navigate().back();
-        pf.MobandInstallLink();
-        user.deleteAccount();
-    }
+//    @Test(priority = 8, description = "Install link")
+//    public void InstallLink() throws InterruptedException {
+//        Thread.sleep(2000);
+//        TestUtil.getScreenShot();
+//        user.profileCreation("appium", "appium", "10-10-1994");
+//        TestUtil.BackNavigation();
+//        user.deleteAccount();
+//        Thread.sleep(5000);
+//    }
+//
+//    @Test(priority = 9, description = "Find a policy Alternate number")
+//    public void findpolicyalternateNo() throws InterruptedException {
+//        user.profileCreation1("dummy", "demo", "10-10-1994");
+//        pf.Alternate_no("3299010746");
+//        user.deleteAccount();
+//    }
+//
+//    @Test(priority = 10, description = "Find a policy by Mobile number")
+//    public void findpolicyMobNo() throws InterruptedException {
+//        pf.MobileNo();
+//        user.deleteAccount();
+//    }
+//
+//    @Test(priority = 11, description = "Find a policy by Mobile number and Install link")
+//    public void findpolicyMobNoInstalllink() throws InterruptedException {
+//        Thread.sleep(4000);
+//        TestUtil.getScreenShot();
+//        user.profileCreation1("dummy", "demo", "10-10-1994");
+//        Thread.sleep(4000);
+//        driver.navigate().back();
+//        pf.MobandInstallLink();
+//        user.deleteAccount();
+//    }
     @AfterMethod
     public void close() {
 
