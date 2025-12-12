@@ -182,9 +182,9 @@ public class smoke_Suite extends TestBase {
 
         driver.quit();
     }
-    @AfterClass
-    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
-        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
-        a.allureToSlack("Consumer App Smoke Suite Report");
-    }
+//    @AfterClass
+//    public void Screenshot() throws SlackApiException, IOException, InterruptedException {
+//        AllureServeAndSlackScreenshot a =new AllureServeAndSlackScreenshot();
+//        a.allureToSlack("Consumer App Smoke Suite Report");
+//    }
 }

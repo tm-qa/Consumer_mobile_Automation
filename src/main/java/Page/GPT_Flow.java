@@ -85,7 +85,13 @@ public class GPT_Flow {
         Thread.sleep(3000);
         TestUtil.assertText(AnalysisComplete, "✅ The analysis is complete! You can now ask me any questions related to the policy!");
         TestUtil.getScreenShot();
+
         TestUtil.sendKeys(TextBox, "What is Policy Number", "Text box entered");
+
+
+        Thread.sleep(1000);
+        TestUtil.sendKeys(TextBox, "Hi", "Text box entered");
+
         TestUtil.click(Send, "Send clicked");
         Thread.sleep(5000);
         TestUtil.assertText(PolicyNumber, "OG-26-1904-1805-00087907");
@@ -93,4 +99,5 @@ public class GPT_Flow {
 
 
     }
+
 }
