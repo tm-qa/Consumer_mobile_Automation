@@ -185,7 +185,7 @@ public class TestUtil extends TestBase {
                     break;
                 }
             } catch (NoSuchElementException e) {
-                LogUtils.info("Navigating back...");
+                LogUtils.info("Navigating back....");
                 driver.navigate().back();
                 Thread.sleep(3000); // small wait to let UI load
             }
@@ -249,6 +249,7 @@ public class TestUtil extends TestBase {
     }
     public static boolean isVisible(WebElement element) {
         try {
+
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
